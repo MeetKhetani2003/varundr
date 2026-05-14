@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, Share2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, Share2, Calendar } from 'lucide-react';
 import { BRAND, handleImageFallback, fadeUpVariant, staggerContainer } from '../lib/constants';
 import { SectionHeading, Button } from '../components/UIElements';
 import Link from 'next/link';
@@ -33,11 +33,12 @@ export default function ContactPage() {
       {/* 2. Contact Info Cards */}
       <section className="section-padding">
         <div className="main-container">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Phone, title: "Emergency & OP", info1: "+91 77010-10703", info2: "+91 77010-10704", color: "bg-teal-50 text-teal-600" },
-              { icon: MapPin, title: "Our Location", info1: "Amaseoni, Vidhan Sabha Road", info2: "Near Swarnbhoomi, Raipur (C.G.)", color: "bg-red-50 text-red-600" },
-              { icon: Mail, title: "Email Support", info1: "raipurcareplus@gmail.com", info2: "info@careplusraipur.com", color: "bg-blue-50 text-blue-600" }
+              { icon: MapPin, title: "Our Location", info1: "Amaseoni, Vidhan Sabha Road", info2: "Raipur (C.G.)", color: "bg-red-50 text-red-600" },
+              { icon: Mail, title: "Email Support", info1: "raipurcareplus@gmail.com", info2: "info@careplusraipur.com", color: "bg-blue-50 text-blue-600" },
+              { icon: Clock, title: "OPD Hours", info1: "Morning: 10:30 - 14:00", info2: "Evening: 18:00 - 21:00", color: "bg-yellow-50 text-yellow-600" }
             ].map((card, i) => (
               <motion.div 
                 key={i}
@@ -45,26 +46,26 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 group hover:bg-white hover:shadow-2xl hover:border-white transition-all"
+                className="p-8 rounded-[2.5rem] bg-slate-50 border border-slate-100 group hover:bg-white hover:shadow-2xl hover:border-white transition-all text-center"
               >
-                <div className={`w-16 h-16 rounded-2xl ${card.color} flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform`}>
-                  <card.icon className="w-8 h-8" />
+                <div className={`w-14 h-14 rounded-2xl ${card.color} flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform mx-auto`}>
+                  <card.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{card.title}</h3>
-                <p className="text-lg text-slate-600 font-medium">{card.info1}</p>
-                <p className="text-lg text-slate-600 font-medium">{card.info2}</p>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
+                <p className="text-base text-slate-600 font-medium">{card.info1}</p>
+                <p className="text-base text-slate-600 font-medium">{card.info2}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. Interactive Map & Working Hours */}
-      <section className="section-padding bg-slate-50">
+      {/* 3. Interactive Map & Appointment Form */}
+      <section className="section-padding bg-slate-950 text-white">
         <div className="main-container">
-          <div className="grid lg:grid-cols-12 gap-12 items-stretch">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Left: Map */}
-            <div className="lg:col-span-8 rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white min-h-[400px] md:min-h-[600px] relative group">
+            <div className="rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white/5 min-h-[500px] md:min-h-[700px] relative">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14874.102195263045!2d81.7063468!3d21.2506693!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c3664d50f55f%3A0xc3c9448f80456565!2sCare%20Plus%20Healthcentre!5e0!3m2!1sen!2sin!4v1715668000000!5m2!1sen!2sin" 
                 className="absolute inset-0 w-full h-full border-0"
@@ -72,52 +73,52 @@ export default function ContactPage() {
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="absolute inset-0 pointer-events-none border-[12px] border-slate-50/10 rounded-[3rem] md:rounded-[4rem]" />
             </div>
             
-            {/* Right: Working Hours */}
-            <div className="lg:col-span-4 flex flex-col gap-8">
-              <div className="bg-slate-900 text-white p-10 md:p-12 rounded-[3rem] md:rounded-[4rem] flex-1 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
-                <Clock className="w-12 h-12 text-teal-400 mb-8 relative z-10" />
-                <h3 className="text-3xl font-bold mb-8 relative z-10">OPD Hours</h3>
-                <ul className="space-y-8 relative z-10">
-                  <li className="pb-6 border-b border-white/10">
-                    <div className="text-teal-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">Monday - Saturday</div>
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className="text-slate-400">Morning OPD</span>
-                        <span className="font-bold text-white">10:30 AM - 02:00 PM</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-slate-400">Evening OPD</span>
-                        <span className="font-bold text-white">06:00 PM - 09:00 PM</span>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="flex justify-between items-center pb-6 border-b border-white/10">
-                    <span className="text-slate-400">Sunday</span>
-                    <span className="px-3 py-1 rounded-md bg-red-500/10 text-red-400 font-bold text-xs uppercase tracking-widest border border-red-500/20">Emergency Only</span>
-                  </li>
-                  <li className="flex justify-between items-center pt-2">
-                    <span className="text-slate-400 font-bold uppercase tracking-widest text-xs">Emergency Unit</span>
-                    <span className="flex items-center gap-2 font-bold text-red-500">
-                      <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                      OPEN 24/7
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              
-              <Link href="/appointment" className="group">
-                <div className="bg-teal-600 p-10 rounded-[3rem] text-white flex items-center justify-between group-hover:bg-teal-700 transition-colors shadow-xl">
-                  <div>
-                    <div className="text-sm font-bold uppercase tracking-widest opacity-70 mb-2">Ready to visit?</div>
-                    <div className="text-2xl font-bold">Book Appointment</div>
-                  </div>
-                  <ArrowRight className="w-10 h-10 group-hover:translate-x-2 transition-transform" />
+            {/* Right: Appointment Form */}
+            <div className="bg-white/5 backdrop-blur-md p-10 md:p-14 rounded-[3rem] md:rounded-[4rem] border border-white/10 shadow-2xl">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-14 h-14 rounded-2xl bg-teal-500/20 text-teal-400 flex items-center justify-center">
+                  <Calendar className="w-7 h-7" />
                 </div>
-              </Link>
+                <div>
+                  <h3 className="text-3xl font-bold">Book Appointment</h3>
+                  <p className="text-slate-400 text-sm">Secure your visit in just 30 seconds.</p>
+                </div>
+              </div>
+
+              <form className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Full Name</label>
+                    <input type="text" placeholder="John Doe" className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 focus:border-teal-500 outline-none transition-all placeholder:text-slate-600" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Phone Number</label>
+                    <input type="tel" placeholder="+91 00000-00000" className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 focus:border-teal-500 outline-none transition-all placeholder:text-slate-600" />
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Appointment Date</label>
+                    <input type="date" className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 focus:border-teal-500 outline-none transition-all [color-scheme:dark]" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Preferred Time</label>
+                    <input type="time" className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 focus:border-teal-500 outline-none transition-all [color-scheme:dark]" />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Message / Medical Concern</label>
+                  <textarea placeholder="Tell us about your concern..." className="w-full h-32 bg-white/5 border border-white/10 rounded-2xl p-6 focus:border-teal-500 outline-none transition-all resize-none placeholder:text-slate-600"></textarea>
+                </div>
+
+                <Button className="w-full h-18 rounded-[2rem] text-xl font-bold mt-4 shadow-xl shadow-teal-500/20">
+                  Confirm Booking Request <ArrowRight className="ml-2 w-6 h-6" />
+                </Button>
+              </form>
             </div>
           </div>
         </div>

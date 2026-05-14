@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BRAND, DOCTORS, handleImageFallback, modernEase, fadeUpVariant, staggerContainer } from '../lib/constants';
 import { SectionHeading, Button } from '../components/UIElements';
-import { ArrowRight, Star, Award, GraduationCap } from 'lucide-react';
+import { ArrowRight, Star, Award, GraduationCap, CheckCircle2, MapPin, Clock, MessageCircle } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DoctorsPage() {
@@ -33,54 +33,77 @@ export default function DoctorsPage() {
       {/* 2. Doctors Grid */}
       <section className="section-padding">
         <div className="main-container">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-12">
             {DOCTORS.map((doc, idx) => (
               <motion.div
                 key={doc.id}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                variants={{
-                  hidden: { opacity: 0, y: 40 },
-                  visible: { opacity: 1, y: 0, transition: { delay: idx * 0.2, duration: 0.8, ease: modernEase } }
-                }}
-                className="group relative"
+                transition={{ delay: idx * 0.1 }}
+                className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden p-8 flex flex-col hover:shadow-xl transition-all"
               >
-                <div className="relative h-[600px] rounded-[4rem] overflow-hidden shadow-2xl border border-slate-100">
-                  <img src={doc.image} alt={doc.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onError={handleImageFallback} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-                  
-                  <div className="absolute bottom-0 left-0 w-full p-12">
-                    <div className="flex items-center gap-2 mb-4">
-                      {[1, 2, 3, 4, 5].map((s) => (
-                        <Star key={s} className="w-4 h-4 text-yellow-400 fill-current" />
-                      ))}
-                      <span className="text-white/70 text-xs font-bold uppercase tracking-widest ml-2">Top Rated Expert</span>
+                {/* Header: Photo + Name + Stats */}
+                <div className="flex gap-6 mb-8">
+                  <div className="relative shrink-0">
+                    <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-100 relative z-10">
+                      <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" />
                     </div>
-                    <h3 className="text-5xl font-bold text-white mb-2" style={{ fontFamily: 'var(--font-outfit)' }}>{doc.name}</h3>
-                    <div className="text-teal-400 font-bold tracking-[0.2em] uppercase text-sm mb-6">{doc.qualifications}</div>
-                    
-                    <Link href={`/doctors/${doc.id}`}>
-                      <Button className="h-14 px-8 rounded-2xl group/btn">
-                        View Journey <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-2 transition-transform" />
-                      </Button>
-                    </Link>
+                    <div className="absolute -top-1 -right-1 bg-[#10B981] text-white rounded-full p-1 border-2 border-white z-20">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex justify-between items-start mb-1">
+                      <h3 className="text-2xl font-bold text-slate-900 truncate" style={{ fontFamily: 'var(--font-outfit)' }}>{doc.name}</h3>
+                      <div className="flex items-center gap-1 bg-yellow-50 px-2 py-0.5 rounded-lg shrink-0">
+                        <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                        <span className="text-sm font-bold text-slate-700">4.9</span>
+                      </div>
+                    </div>
+                    <div className="text-teal-600 font-bold text-sm mb-3">{doc.qualifications.split(',')[0]}</div>
+                    <div className="grid grid-cols-1 gap-2">
+                      <div className="flex items-center gap-2 text-slate-500 text-xs">
+                        <MapPin className="w-3.5 h-3.5" />
+                        <span>Raipur (Saddu & Areas)</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-slate-500 text-xs">
+                        <Clock className="w-3.5 h-3.5" />
+                        <span>15+ Years Experience</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-8 grid sm:grid-cols-2 gap-6 px-4">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
-                      <Award className="w-6 h-6" />
-                    </div>
-                    <p className="text-slate-600 text-sm leading-relaxed">{doc.specialization}</p>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0">
-                      <GraduationCap className="w-6 h-6" />
-                    </div>
-                    <p className="text-slate-600 text-sm leading-relaxed">{doc.bio.split('.')[0]}.</p>
-                  </div>
+                {/* Bio Quote Box */}
+                <div className="bg-slate-50/80 p-6 rounded-3xl mb-6 flex-1 italic text-slate-600 text-sm leading-relaxed relative">
+                  <span className="text-slate-200 text-4xl absolute -top-1 left-2 font-serif">"</span>
+                  Verified & Trained expert. Specializing in advanced {doc.specialization.toLowerCase()} with a focus on patient outcomes.
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {doc.specialization.split('&').map((tag, i) => (
+                    <span key={i} className="px-4 py-1.5 bg-slate-50 border border-slate-100 rounded-full text-xs font-bold text-slate-600">
+                      {tag.trim()}
+                    </span>
+                  ))}
+                  <span className="px-3 py-1.5 text-xs font-bold text-teal-600">+1 more</span>
+                </div>
+
+                {/* Buttons */}
+                <div className="space-y-3">
+                  <Link href={`/doctors/${doc.id}`} className="block">
+                    <button className="w-full h-14 bg-[#10B981] hover:bg-[#059669] text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
+                      View Profile & Book <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </Link>
+                  <button 
+                    onClick={() => window.open('https://wa.me/917701010703', '_blank')}
+                    className="w-full h-14 bg-white border border-slate-100 hover:bg-slate-50 text-slate-700 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all"
+                  >
+                    <MessageCircle className="w-5 h-5 text-[#25D366]" /> WhatsApp Enquiry
+                  </button>
                 </div>
               </motion.div>
             ))}

@@ -6,6 +6,7 @@ import { Users, Microscope, Building, HeartPulse, ArrowRight, Award, ShieldCheck
 import Link from 'next/link';
 import { BRAND, DOCTORS, handleImageFallback, fadeUpVariant, staggerContainer, modernEase } from '../lib/constants';
 import { Button, SectionHeading } from '../components/UIElements';
+import { GraduationCap, Microscope as MicroscopeIcon } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -80,34 +81,159 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Meet the Founders */}
-      <section className="section-padding bg-slate-950 text-white">
+      {/* 3. Meet the Founders - Alternating Journey */}
+      <section className="section-padding bg-slate-50 overflow-hidden">
         <div className="main-container">
-          <SectionHeading subtitle="Leadership & Legacy" title="Meet the Visionaries" centered isDark />
+          <SectionHeading subtitle="Leadership & Legacy" title="The Hands Behind the Healing" centered />
           
-          <div className="grid lg:grid-cols-2 gap-12 mt-20 max-w-6xl mx-auto">
-            {DOCTORS.map((doc, idx) => (
+          <div className="space-y-32 mt-24">
+            {/* Founder 1: Dr. Varun */}
+            <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
               <motion.div 
-                key={doc.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.2 }}
-                className="bg-white/5 p-10 rounded-[4rem] border border-white/10 shadow-sm hover:shadow-2xl transition-all group flex flex-col items-center text-center"
+                className="lg:w-1/2 relative"
               >
-                <div className="w-48 h-48 rounded-full overflow-hidden mb-8 border-8 border-white/5 shadow-xl group-hover:scale-105 transition-transform">
-                  <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" />
+                <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
+                  <img src={DOCTORS[0].image} alt={DOCTORS[0].name} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: 'var(--font-outfit)' }}>{doc.name}</h3>
-                <div className="text-teal-400 font-bold uppercase tracking-widest text-sm mb-6">{doc.qualifications}</div>
-                <p className="text-slate-400 mb-10 leading-relaxed">
-                  Leading with over 15 years of excellence, {doc.name.split(' ')[1]} has pioneered advanced medical practices in Raipur.
-                </p>
-                <Link href={`/doctors/${doc.id === 'dr-varun' ? 'dr-varun' : 'dr-neha'}`}>
-                  <Button className="rounded-2xl px-8 h-14">View {doc.name.split(' ')[1]}'s Journey <ArrowRight className="ml-2 w-5 h-5" /></Button>
-                </Link>
+                <div className="absolute -bottom-10 -right-10 md:right-10 bg-white p-6 rounded-3xl shadow-xl z-20 border border-slate-100 flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 leading-tight">{DOCTORS[0].name}</div>
+                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Founder & Chief Surgeon</div>
+                  </div>
+                </div>
               </motion.div>
-            ))}
+
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="lg:w-1/2"
+              >
+                <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8 leading-tight" style={{ fontFamily: 'var(--font-outfit)' }}>
+                  Healing Hands / <br />Modern Precision.
+                </h2>
+                <p className="text-xl text-slate-600 leading-relaxed mb-10">
+                  {DOCTORS[0].name} began his journey in orthopedics with a clear vision—to bring advanced, evidence-based surgical services to Raipur with a focus on long-term recovery, not just temporary relief.
+                </p>
+                
+                <div className="grid sm:grid-cols-2 gap-8 mb-10">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-teal-600">
+                      <GraduationCap className="w-6 h-6" />
+                      <span className="font-bold text-slate-900">Early Foundation</span>
+                    </div>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      Completed MS Ortho in 2008 followed by clinical fellowship at Apollo Hospital, Bangalore under renowned mentors.
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-teal-600">
+                      <Award className="w-6 h-6" />
+                      <span className="font-bold text-slate-900">Specialized Training</span>
+                    </div>
+                    <ul className="text-slate-500 text-sm space-y-1">
+                      <li>• Joint Replacement Specialist</li>
+                      <li>• Trauma & Reconstruction</li>
+                      <li>• Arthroscopy Certification</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm mb-10">
+                  <div className="flex items-center gap-3 text-teal-600 mb-4">
+                    <HeartPulse className="w-6 h-6" />
+                    <span className="font-bold text-slate-900">Current Association</span>
+                  </div>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    Currently associated with **Care Plus Healthcentre**, Raipur, where he leads a state-of-the-art orthopedic department equipped with advanced surgical protocols.
+                  </p>
+                </div>
+
+                <blockquote className="text-xl italic text-slate-500 border-l-4 border-teal-500 pl-6 py-2">
+                  "His vision is to build one of the most trusted orthopedic networks in Chhattisgarh, combining clinical excellence with compassionate care."
+                </blockquote>
+              </motion.div>
+            </div>
+
+            {/* Founder 2: Dr. Neha (Alternated) */}
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="lg:w-1/2 relative"
+              >
+                <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl relative z-10">
+                  <img src={DOCTORS[1].image} alt={DOCTORS[1].name} className="w-full h-full object-cover" />
+                </div>
+                <div className="absolute -bottom-10 -left-10 md:left-10 bg-white p-6 rounded-3xl shadow-xl z-20 border border-slate-100 flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center">
+                    <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 leading-tight">{DOCTORS[1].name}</div>
+                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Co-Founder & Pathologist</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="lg:w-1/2"
+              >
+                <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mb-8 leading-tight" style={{ fontFamily: 'var(--font-outfit)' }}>
+                  Diagnostics / <br />Precision Science.
+                </h2>
+                <p className="text-xl text-slate-600 leading-relaxed mb-10">
+                  {DOCTORS[1].name} established the pathology division at Care Plus with a singular goal—to provide diagnostic reports that clinicians can trust implicitly for life-critical decisions.
+                </p>
+                
+                <div className="grid sm:grid-cols-2 gap-8 mb-10">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-teal-600">
+                      <GraduationCap className="w-6 h-6" />
+                      <span className="font-bold text-slate-900">Academic Excellence</span>
+                    </div>
+                    <p className="text-slate-500 text-sm leading-relaxed">
+                      Gold medalist in MD Pathology, with specialized training in Molecular Diagnostics and Hematology.
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-teal-600">
+                      <Microscope className="w-6 h-6" />
+                      <span className="font-bold text-slate-900">Lab Leadership</span>
+                    </div>
+                    <ul className="text-slate-500 text-sm space-y-1">
+                      <li>• NABL Quality Standards</li>
+                      <li>• Automated Bio-Chemistry</li>
+                      <li>• Advanced Cytology</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm mb-10">
+                  <div className="flex items-center gap-3 text-teal-600 mb-4">
+                    <Building className="w-6 h-6" />
+                    <span className="font-bold text-slate-900">Centre of Excellence</span>
+                  </div>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    She leads the NABL-aligned pathology lab at **Care Plus**, ensuring zero-error reporting and rapid turnaround times for all diagnostic tests.
+                  </p>
+                </div>
+
+                <blockquote className="text-xl italic text-slate-500 border-l-4 border-teal-500 pl-6 py-2">
+                  "Her mission is to bridge the gap between complex symptoms and accurate medical intervention through the power of diagnostics."
+                </blockquote>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
