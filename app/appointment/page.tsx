@@ -7,6 +7,8 @@ import { BRAND, handleImageFallback, fadeUpVariant, staggerContainer } from '../
 import { SectionHeading, Button } from '../components/UIElements';
 import { motion } from 'framer-motion';
 
+import { AppointmentForm as SharedForm } from '../components/AppointmentForm';
+
 function AppointmentForm() {
   const searchParams = useSearchParams();
   const selectedDoctor = searchParams.get('doctor') || '';
@@ -14,96 +16,7 @@ function AppointmentForm() {
   return (
     <div className="bg-white p-10 md:p-16 rounded-[4rem] shadow-[0_50px_100px_rgba(0,0,0,0.08)] border border-slate-100 relative z-10 overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
-      
-      <form className="space-y-12" onSubmit={(e) => e.preventDefault()}>
-        {/* Row 1: Name & Number */}
-        <div className="grid md:grid-cols-2 gap-10">
-          <div className="space-y-4">
-            <label className="text-sm font-black text-slate-400 ml-4 uppercase tracking-[0.2em]">Patient Full Name</label>
-            <div className="relative group">
-              <User className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 w-5 h-5 group-focus-within:text-teal-600 transition-colors" />
-              <input type="text" className="w-full bg-slate-50 border border-slate-100 rounded-3xl pl-16 pr-8 py-5 focus:outline-none focus:ring-4 focus:ring-teal-500/10 focus:border-teal-600 transition-all font-bold text-slate-900 placeholder:text-slate-300" placeholder="e.g. Rahul Sharma" />
-            </div>
-          </div>
-          <div className="space-y-4">
-            <label className="text-sm font-black text-slate-400 ml-4 uppercase tracking-[0.2em]">Phone Number</label>
-            <div className="relative group">
-              <Phone className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 w-5 h-5 group-focus-within:text-teal-600 transition-colors" />
-              <input type="tel" className="w-full bg-slate-50 border border-slate-100 rounded-3xl pl-16 pr-8 py-5 focus:outline-none focus:ring-4 focus:ring-teal-500/10 focus:border-teal-600 transition-all font-bold text-slate-900 placeholder:text-slate-300" placeholder="+91 00000 00000" />
-            </div>
-          </div>
-        </div>
-
-        {/* Row 2: Email */}
-        <div className="space-y-4">
-          <label className="text-sm font-black text-slate-400 ml-4 uppercase tracking-[0.2em]">Email Address</label>
-          <div className="relative group">
-            <MessageCircle className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 w-5 h-5 group-focus-within:text-teal-600 transition-colors" />
-            <input type="email" className="w-full bg-slate-50 border border-slate-100 rounded-3xl pl-16 pr-8 py-5 focus:outline-none focus:ring-4 focus:ring-teal-500/10 focus:border-teal-600 transition-all font-bold text-slate-900 placeholder:text-slate-300" placeholder="rahul@example.com" />
-          </div>
-        </div>
-
-        {/* Row 3: Service & Doctor */}
-        <div className="grid md:grid-cols-2 gap-10">
-          <div className="space-y-4">
-            <label className="text-sm font-black text-slate-400 ml-4 uppercase tracking-[0.2em]">Select Service</label>
-            <div className="relative group">
-              <div className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 z-10 group-focus-within:text-teal-600 transition-colors">
-                <Calendar className="w-5 h-5" />
-              </div>
-              <select className="w-full bg-slate-50 border border-slate-100 rounded-3xl pl-16 pr-8 py-5 focus:outline-none focus:ring-4 focus:ring-teal-500/10 focus:border-teal-600 transition-all font-bold text-slate-900 appearance-none relative z-0">
-                <option value="">Choose Service...</option>
-                <option value="orthopedics">Orthopedic Consultation</option>
-                <option value="pathology">Pathology / Blood Test</option>
-                <option value="joint-replacement">Joint Replacement</option>
-                <option value="sports-medicine">Sports Medicine</option>
-                <option value="trauma">Trauma Care</option>
-              </select>
-              <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none z-10 text-slate-300">
-                <ChevronRight className="w-5 h-5 rotate-90" />
-              </div>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <label className="text-sm font-black text-slate-400 ml-4 uppercase tracking-[0.2em]">Preferred Doctor</label>
-            <div className="relative group">
-              <div className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-300 z-10 group-focus-within:text-teal-600 transition-colors">
-                <User className="w-5 h-5" />
-              </div>
-              <select 
-                defaultValue={selectedDoctor}
-                className="w-full bg-slate-50 border border-slate-100 rounded-3xl pl-16 pr-8 py-5 focus:outline-none focus:ring-4 focus:ring-teal-500/10 focus:border-teal-600 transition-all font-bold text-slate-900 appearance-none relative z-0"
-              >
-                <option value="">Choose Doctor...</option>
-                <option value="dr-varun">Dr. Varun Goel (Orthopedics)</option>
-                <option value="dr-neha">Dr. Neha Goel (Pathology)</option>
-              </select>
-              <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none z-10 text-slate-300">
-                <ChevronRight className="w-5 h-5 rotate-90" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Row 4: Message */}
-        <div className="space-y-4">
-          <label className="text-sm font-black text-slate-400 ml-4 uppercase tracking-[0.2em]">Additional Message</label>
-          <textarea rows={4} className="w-full bg-slate-50 border border-slate-100 rounded-[2.5rem] px-8 py-6 focus:outline-none focus:ring-4 focus:ring-teal-500/10 focus:border-teal-600 transition-all font-bold text-slate-900 resize-none placeholder:text-slate-300" placeholder="Briefly describe your symptoms or specific requirements..."></textarea>
-        </div>
-
-        <div className="pt-10 flex flex-col md:flex-row gap-8 items-center justify-between border-t border-slate-50">
-          <Button className="w-full md:w-auto h-20 px-16 text-xl rounded-3xl shadow-2xl shadow-teal-950/20 hover:scale-105 transition-transform active:scale-95 group">
-            Request Appointment <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
-          </Button>
-
-          <div className="flex items-center gap-6 text-xs font-black text-slate-300 uppercase tracking-[0.3em]">
-            <span>OR FAST BOOK</span>
-            <Button variant="secondary" onClick={() => window.open('https://wa.me/917701010703', '_blank')} className="bg-[#25D366] text-white hover:bg-[#1eb954] border-none px-8 h-14 rounded-2xl shadow-lg shadow-green-500/10">
-              <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp
-            </Button>
-          </div>
-        </div>
-      </form>
+      <SharedForm initialDoctor={selectedDoctor} />
     </div>
   );
 }

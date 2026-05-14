@@ -7,13 +7,24 @@ import { ArrowLeft, CheckCircle2, MessageCircle, Calendar, ChevronRight } from '
 import { SERVICES_DATA } from '../../lib/services-data';
 import { BRAND, handleImageFallback, modernEase, fadeUpVariant, staggerContainer } from '../../lib/constants';
 import { Button, SectionHeading } from '../../components/UIElements';
+import { useAppointment } from '../../lib/AppointmentContext';
 import Link from 'next/link';
 
 export default function ServiceDetailPage() {
   const params = useParams();
   const router = useRouter();
+  const { openModal } = useAppointment();
   const slug = params.slug as string;
   const service = SERVICES_DATA[slug];
+
+  const serviceMap: Record<string, string> = {
+    'orthopedic-care': 'Orthopedic Consultation',
+    'pathology-lab': 'Pathology / Blood Test',
+    'trauma-care': 'Trauma Care',
+    'digital-xray': 'Digital X-Ray',
+    'joint-replacement': 'Joint Replacement',
+    'in-house-pharmacy': 'Pharmacy Support'
+  };
 
   if (!service) {
     return (
@@ -55,9 +66,7 @@ export default function ServiceDetailPage() {
                 {service.subtitle}
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/appointment">
-                  <Button className="h-16 px-10 rounded-2xl text-lg">Book Service Appointment</Button>
-                </Link>
+                <Button onClick={() => openModal('', serviceMap[slug])} className="h-16 px-10 rounded-2xl text-lg">Book Service Appointment</Button>
                 <Button variant="secondary" onClick={() => window.open('https://wa.me/917701010703', '_blank')} className="bg-white/10 border-white/20 text-white h-16 px-10 rounded-2xl text-lg hover:bg-white/20">
                   Enquire via WhatsApp
                 </Button>
@@ -154,9 +163,7 @@ export default function ServiceDetailPage() {
               <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-outfit)' }}>Start your healing <br />journey today.</h2>
               <p className="text-xl text-slate-500">Expert medical care is just a booking away.</p>
             </div>
-            <Link href="/appointment">
-              <Button className="h-16 px-12 rounded-2xl text-xl flex items-center gap-2">Book Appointment <ChevronRight className="w-6 h-6" /></Button>
-            </Link>
+            <Button onClick={() => openModal('', serviceMap[slug])} className="h-16 px-12 rounded-2xl text-xl flex items-center gap-2">Book Appointment <ChevronRight className="w-6 h-6" /></Button>
           </div>
         </div>
       </section>

@@ -5,9 +5,12 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowRight, Share2, Calendar } from 'lucide-react';
 import { BRAND, handleImageFallback, fadeUpVariant, staggerContainer } from '../lib/constants';
 import { SectionHeading, Button } from '../components/UIElements';
+import { useAppointment } from '../lib/AppointmentContext';
+import { AppointmentForm } from '../components/AppointmentForm';
 import Link from 'next/link';
 
 export default function ContactPage() {
+  const { openModal } = useAppointment();
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Cinematic Header */}
@@ -20,8 +23,8 @@ export default function ContactPage() {
         <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-400 text-sm font-bold uppercase tracking-[0.3em] mb-6">Contact Us</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
-              We're Here to <span className="font-bold" style={{ color: BRAND.teal }}>Help You</span>
+            <h1 className="text-6xl md:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
+              Get in <span className="font-bold text-teal-400">Touch</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
               Reach out to Raipur's most trusted orthopedic and diagnostic centre. Whether it's an emergency or a routine check-up, we are just a call away.
@@ -61,64 +64,45 @@ export default function ContactPage() {
       </section>
 
       {/* 3. Interactive Map & Appointment Form */}
-      <section className="section-padding bg-slate-950 text-white">
+      <section className="section-padding bg-slate-50">
         <div className="main-container">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left: Map */}
-            <div className="rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white/5 min-h-[500px] md:min-h-[700px] relative">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14874.102195263045!2d81.7063468!3d21.2506693!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c3664d50f55f%3A0xc3c9448f80456565!2sCare%20Plus%20Healthcentre!5e0!3m2!1sen!2sin!4v1715668000000!5m2!1sen!2sin" 
-                className="absolute inset-0 w-full h-full border-0"
-                allowFullScreen={true} 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+          <div className="grid lg:grid-cols-12 gap-12 items-stretch">
+            {/* Left: Contact Details & Map */}
+            <div className="lg:col-span-5 space-y-8">
+              <div className="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 h-full flex flex-col">
+                <SectionHeading subtitle="Visit Us" title="Find Our Clinic" />
+                <p className="text-slate-600 mb-8">
+                  Located in the heart of Raipur, our facility is easily accessible with ample parking and modern amenities.
+                </p>
+                
+                <div className="flex-1 rounded-3xl overflow-hidden shadow-inner border border-slate-100 min-h-[400px] relative">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14874.102195263045!2d81.7063468!3d21.2506693!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c3664d50f55f%3A0xc3c9448f80456565!2sCare%20Plus%20Healthcentre!5e0!3m2!1sen!2sin!4v1715668000000!5m2!1sen!2sin" 
+                    className="absolute inset-0 w-full h-full border-0"
+                    allowFullScreen={true} 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </div>
             </div>
             
             {/* Right: Appointment Form */}
-            <div className="bg-white/5 backdrop-blur-md p-10 md:p-14 rounded-[3rem] md:rounded-[4rem] border border-white/10 shadow-2xl">
-              <div className="flex items-center gap-4 mb-10">
-                <div className="w-14 h-14 rounded-2xl bg-teal-500/20 text-teal-400 flex items-center justify-center">
-                  <Calendar className="w-7 h-7" />
+            <div className="lg:col-span-7">
+              <div className="bg-white p-10 md:p-14 rounded-[3rem] shadow-2xl border border-slate-100 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl" />
+                <div className="flex items-center gap-6 mb-12">
+                  <div className="w-16 h-16 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                    <Calendar className="w-8 h-8" />
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-slate-900" style={{ fontFamily: 'var(--font-outfit)' }}>Book Your Appointment</h3>
+                    <p className="text-slate-500">Fill in the details for a priority consultation.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-3xl font-bold">Book Appointment</h3>
-                  <p className="text-slate-400 text-sm">Secure your visit in just 30 seconds.</p>
-                </div>
+
+                <AppointmentForm isDark={false} />
               </div>
-
-              <form className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Full Name</label>
-                    <input type="text" placeholder="John Doe" className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 focus:border-teal-500 outline-none transition-all placeholder:text-slate-600" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Phone Number</label>
-                    <input type="tel" placeholder="+91 00000-00000" className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 focus:border-teal-500 outline-none transition-all placeholder:text-slate-600" />
-                  </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Appointment Date</label>
-                    <input type="date" className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 focus:border-teal-500 outline-none transition-all [color-scheme:dark]" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Preferred Time</label>
-                    <input type="time" className="w-full h-16 bg-white/5 border border-white/10 rounded-2xl px-6 focus:border-teal-500 outline-none transition-all [color-scheme:dark]" />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Message / Medical Concern</label>
-                  <textarea placeholder="Tell us about your concern..." className="w-full h-32 bg-white/5 border border-white/10 rounded-2xl p-6 focus:border-teal-500 outline-none transition-all resize-none placeholder:text-slate-600"></textarea>
-                </div>
-
-                <Button className="w-full h-18 rounded-[2rem] text-xl font-bold mt-4 shadow-xl shadow-teal-500/20">
-                  Confirm Booking Request <ArrowRight className="ml-2 w-6 h-6" />
-                </Button>
-              </form>
             </div>
           </div>
         </div>

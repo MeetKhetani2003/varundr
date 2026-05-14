@@ -6,9 +6,11 @@ import { Users, Microscope, Building, HeartPulse, ArrowRight, Award, ShieldCheck
 import Link from 'next/link';
 import { BRAND, DOCTORS, handleImageFallback, fadeUpVariant, staggerContainer, modernEase } from '../lib/constants';
 import { Button, SectionHeading } from '../components/UIElements';
+import { useAppointment } from '../lib/AppointmentContext';
 import { GraduationCap, Microscope as MicroscopeIcon } from 'lucide-react';
 
 export default function AboutPage() {
+  const { openModal } = useAppointment();
   return (
     <div className="bg-white">
       {/* 1. Hero / Header Section */}
@@ -261,16 +263,14 @@ export default function AboutPage() {
       </section>
 
       {/* 5. CTA Section */}
-      <section className="section-padding">
+      <section className="pt-20 pb-32">
         <div className="main-container">
-          <div className="bg-[#0F5B5D] rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
+          <div className="bg-[#0F5B5D] rounded-[3rem] md:rounded-[5rem] p-12 md:py-32 md:px-24 text-center text-white relative overflow-hidden shadow-2xl">
              <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 20% 30%, #ffffff 0%, transparent 40%)' }} />
              <h2 className="text-4xl md:text-6xl font-bold mb-8 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready to experience <br />world-class care?</h2>
-             <Link href="/appointment" className="relative z-10 inline-block">
-               <Button variant="secondary" className="bg-white text-[#0F5B5D] hover:bg-teal-50 h-16 px-12 rounded-2xl text-xl font-bold shadow-2xl border-0">
-                 Book Your Visit Today
-               </Button>
-             </Link>
+             <Button onClick={() => openModal()} variant="secondary" className="bg-white text-[#0F5B5D] hover:bg-teal-50 h-16 px-12 rounded-2xl text-xl font-bold shadow-2xl border-0 relative z-10">
+               Book Your Visit Today
+             </Button>
           </div>
         </div>
       </section>

@@ -4,12 +4,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BRAND, DOCTORS, handleImageFallback, modernEase, fadeUpVariant, staggerContainer } from '../lib/constants';
 import { SectionHeading, Button } from '../components/UIElements';
-import { ArrowRight, Star, Award, GraduationCap, CheckCircle2, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { useAppointment } from '../lib/AppointmentContext';
+import { ArrowRight, Star, Award, GraduationCap, CheckCircle2, MapPin, Clock, MessageCircle, Calendar, User } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DoctorsPage() {
+  const { openModal } = useAppointment();
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-slate-50 min-h-screen">
       {/* 1. Cinematic Header */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
         <div className="absolute inset-0">
@@ -49,7 +51,7 @@ export default function DoctorsPage() {
                     <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-100 relative z-10">
                       <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" />
                     </div>
-                    <div className="absolute -top-1 -right-1 bg-[#10B981] text-white rounded-full p-1 border-2 border-white z-20">
+                    <div className="absolute -top-1 -right-1 bg-[#0F5B5D] text-white rounded-full p-1 border-2 border-white z-20">
                       <CheckCircle2 className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -61,7 +63,7 @@ export default function DoctorsPage() {
                         <span className="text-sm font-bold text-slate-700">4.9</span>
                       </div>
                     </div>
-                    <div className="text-teal-600 font-bold text-sm mb-3">{doc.qualifications.split(',')[0]}</div>
+                    <div className="text-[#0F5B5D] font-bold text-sm mb-3">{doc.qualifications.split(',')[0]}</div>
                     <div className="grid grid-cols-1 gap-2">
                       <div className="flex items-center gap-2 text-slate-500 text-xs">
                         <MapPin className="w-3.5 h-3.5" />
@@ -88,22 +90,31 @@ export default function DoctorsPage() {
                       {tag.trim()}
                     </span>
                   ))}
-                  <span className="px-3 py-1.5 text-xs font-bold text-teal-600">+1 more</span>
+                  <span className="px-3 py-1.5 text-xs font-bold text-[#0F5B5D]">+1 more</span>
                 </div>
 
                 {/* Buttons */}
-                <div className="space-y-3">
-                  <Link href={`/doctors/${doc.id}`} className="block">
-                    <button className="w-full h-14 bg-[#10B981] hover:bg-[#059669] text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-500/20">
-                      View Profile & Book <ArrowRight className="w-5 h-5" />
-                    </button>
-                  </Link>
+                <div className="flex flex-col gap-3">
                   <button 
-                    onClick={() => window.open('https://wa.me/917701010703', '_blank')}
-                    className="w-full h-14 bg-white border border-slate-100 hover:bg-slate-50 text-slate-700 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all"
+                    onClick={() => openModal(doc.id)}
+                    className="w-full h-14 bg-[#0F5B5D] hover:bg-[#0c4a4c] text-white rounded-2xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-teal-900/20"
                   >
-                    <MessageCircle className="w-5 h-5 text-[#25D366]" /> WhatsApp Enquiry
+                    Quick Book Appointment <Calendar className="w-5 h-5" />
                   </button>
+                  <div className="grid grid-cols-2 gap-3">
+                    <Link 
+                      href={`/doctors/${doc.id}`}
+                      className="h-14 bg-slate-50 text-slate-900 border border-slate-200 hover:border-brand-teal hover:text-brand-teal rounded-2xl font-bold flex items-center justify-center gap-2 transition-all shadow-sm"
+                    >
+                      <User className="w-4 h-4" /> Profile
+                    </Link>
+                    <button 
+                      onClick={() => window.open('https://wa.me/917701010703', '_blank')}
+                      className="h-14 bg-white border border-slate-100 hover:bg-slate-50 text-slate-700 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all"
+                    >
+                      <MessageCircle className="w-5 h-5 text-[#25D366]" /> WA
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -126,7 +137,7 @@ export default function DoctorsPage() {
                  { label: "Years Exp", value: "15+" }
                ].map((stat, i) => (
                  <div key={i} className="text-center">
-                   <div className="text-4xl font-bold text-teal-600 mb-1">{stat.value}</div>
+                   <div className="text-4xl font-bold mb-1" style={{ color: BRAND.teal }}>{stat.value}</div>
                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">{stat.label}</div>
                  </div>
                ))}

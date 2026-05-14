@@ -6,6 +6,8 @@ import { LoadingScreen } from './LoadingScreen';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { BRAND } from '../lib/constants';
+import { AppointmentProvider } from '../lib/AppointmentContext';
+import { AppointmentModal } from './AppointmentModal';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,22 +18,25 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   }, []);
 
   return (
-    <div className="min-h-screen font-sans text-slate-900 selection:text-white" style={{ backgroundColor: '#ffffff' }}>
-      <style>{`::selection { background-color: ${BRAND.teal}; color: white; }`}</style>
+    <AppointmentProvider>
+      <div className="min-h-screen font-sans text-slate-900 selection:text-white" style={{ backgroundColor: '#ffffff' }}>
+        <style>{`::selection { background-color: ${BRAND.teal}; color: white; }`}</style>
 
-      <AnimatePresence mode="wait">
-        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-      </AnimatePresence>
+        <AnimatePresence mode="wait">
+          {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+        </AnimatePresence>
 
-      {!isLoading && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-          <Navbar />
+        {!isLoading && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+            <Navbar />
 
-          <main>
-            {children}
-          </main>
+            <main>
+              {children}
+            </main>
 
-          <Footer />
+            <Footer />
+
+            <AppointmentModal />
 
           {/* Floating Action Button */}
           <motion.div
@@ -54,6 +59,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           </motion.div>
         </motion.div>
       )}
-    </div>
+      </div>
+    </AppointmentProvider>
   );
 }

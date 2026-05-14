@@ -6,6 +6,7 @@ import { Bone, Microscope, Activity, Stethoscope, Syringe, ClipboardList, Buildi
 import Link from 'next/link';
 import { BRAND, modernEase, fadeUpVariant, staggerContainer } from '../lib/constants';
 import { Button, SectionHeading } from '../components/UIElements';
+import { useAppointment } from '../lib/AppointmentContext';
 
 const services = [
   { 
@@ -53,6 +54,7 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  const { openModal } = useAppointment();
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Header Section */}
@@ -104,9 +106,27 @@ export default function ServicesPage() {
                   <p className="text-slate-200 text-lg mb-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 line-clamp-2">
                     {svc.desc}
                   </p>
-                  <Link href={`/services/${svc.id}`} className="inline-flex items-center gap-2 text-white font-bold text-lg group-hover:gap-4 transition-all">
-                    Learn More <ArrowRight className="w-5 h-5" />
-                  </Link>
+                  <div className="flex flex-col gap-4 mt-auto">
+                    <button 
+                      onClick={() => {
+                        const serviceMap: Record<string, string> = {
+                          'orthopedic-care': 'Orthopedic Consultation',
+                          'pathology-lab': 'Pathology / Blood Test',
+                          'trauma-care': 'Trauma Care',
+                          'digital-xray': 'Digital X-Ray',
+                          'joint-replacement': 'Joint Replacement',
+                          'in-house-pharmacy': 'Pharmacy Support'
+                        };
+                        openModal('', serviceMap[svc.id]);
+                      }}
+                      className="w-full h-14 bg-white text-slate-900 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-teal-600 hover:text-white transition-all shadow-xl shadow-black/20"
+                    >
+                      Book This Service <Activity className="w-5 h-5" />
+                    </button>
+                    <Link href={`/services/${svc.id}`} className="inline-flex items-center justify-center gap-2 text-white/70 font-bold text-sm hover:text-white transition-all">
+                      Learn Detailed Info <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -155,9 +175,7 @@ export default function ServicesPage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-10 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready for a <br />consultation?</h2>
             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-               <Link href="/appointment">
-                 <Button className="h-16 px-12 rounded-2xl text-xl">Book Your Slot</Button>
-               </Link>
+               <Button onClick={() => openModal()} className="h-16 px-12 rounded-2xl text-xl">Book Your Slot</Button>
                <Button variant="secondary" onClick={() => window.open('https://wa.me/917701010703', '_blank')} className="bg-white/10 border-white/20 text-white h-16 px-12 rounded-2xl text-xl">WhatsApp Us</Button>
             </div>
           </div>

@@ -13,6 +13,7 @@ import {
 import Link from 'next/link';
 import { BRAND, DOCTORS, GALLERY_IMAGES, handleImageFallback, staggerContainer, fadeUpVariant, HERO_SLIDES, modernEase } from './lib/constants';
 import { Button, SectionHeading } from './components/UIElements';
+import { useAppointment } from './lib/AppointmentContext';
 
 // --- Sub-components for cleaner structure ---
 
@@ -95,6 +96,7 @@ const FAQItem = ({ question, answer, isOpen, onClick, isDark = false }: any) => 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const { openModal } = useAppointment();
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
@@ -178,7 +180,6 @@ export default function HomePage() {
                   <span className="block mt-3">
                     <span className="relative inline-block" style={{ color: BRAND.teal }}>
                       {slide.highlight}
-                      <span className="absolute -bottom-2 left-0 w-full h-4 opacity-20 rounded-full blur-xl" style={{ backgroundColor: BRAND.teal }} />
                     </span>
                   </span>
                 </motion.h1>
@@ -188,11 +189,9 @@ export default function HomePage() {
                 </motion.p>
 
                 <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                  <Link href="/appointment">
-                    <Button className="group h-14 px-9 rounded-2xl text-base font-bold shadow-2xl hover:scale-[1.03] transition-all duration-300">
-                      Book Appointment <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
+                  <Button onClick={() => openModal()} className="group h-14 px-9 rounded-2xl text-base font-bold shadow-2xl hover:scale-[1.03] transition-all duration-300">
+                    Book Appointment <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
 
                   <div className="flex items-center gap-4 px-5 py-3 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/10 shadow-xl">
                     <div className="flex -space-x-3">
@@ -402,11 +401,9 @@ export default function HomePage() {
                         Journey <ArrowRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-2 transition-transform" />
                       </Button>
                     </Link>
-                    <Link href="/appointment" className="flex-1">
-                      <Button variant="secondary" className="w-full h-14 rounded-2xl bg-slate-50 border-slate-100 text-slate-700 hover:bg-slate-100">
-                        Book Visit
-                      </Button>
-                    </Link>
+                    <Button onClick={() => openModal(doc.id)} variant="secondary" className="flex-1 h-14 rounded-2xl bg-slate-50 border-slate-100 text-slate-700 hover:bg-slate-100">
+                      Book Visit
+                    </Button>
                   </div>
                 </div>
               </motion.div>
@@ -603,11 +600,9 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
-              <Link href="/appointment" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto h-14 px-8 rounded-xl text-base font-bold shadow-xl shadow-teal-500/10 group">
-                  Book Now <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Button>
-              </Link>
+              <Button onClick={() => openModal()} className="w-full sm:w-auto h-14 px-8 rounded-xl text-base font-bold shadow-xl shadow-teal-500/10 group">
+                Book Now <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </Button>
               <Button 
                 variant="secondary" 
                 onClick={() => window.open('https://wa.me/917701010703', '_blank')} 

@@ -7,11 +7,13 @@ import { ArrowLeft, Award, CheckCircle2, Calendar, Star, Clock, MapPin, ChevronR
 import { DOCTORS_DATA } from '../../lib/doctors-data';
 import { BRAND, handleImageFallback, modernEase, fadeUpVariant, staggerContainer } from '../../lib/constants';
 import { Button, SectionHeading } from '../../components/UIElements';
+import { useAppointment } from '../../lib/AppointmentContext';
 import Link from 'next/link';
 
 export default function DoctorJourneyPage() {
   const params = useParams();
   const router = useRouter();
+  const { openModal } = useAppointment();
   const slug = params.slug as string;
   const doctor = DOCTORS_DATA[slug];
 
@@ -82,12 +84,10 @@ export default function DoctorJourneyPage() {
                 </motion.div>
 
                 <motion.div variants={fadeUpVariant}>
-                  <Link href={`/appointment?doctor=${doctor.id}`}>
-                    <Button className="h-16 px-10 rounded-2xl text-lg group">
-                      Book Consultation with {doctor.name.split(' ')[1]}
-                      <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                    </Button>
-                  </Link>
+                  <Button onClick={() => openModal(doctor.id)} className="h-16 px-10 rounded-2xl text-lg group">
+                    Book Consultation with {doctor.name.split(' ')[1]}
+                    <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                  </Button>
                 </motion.div>
               </motion.div>
             </div>
@@ -174,9 +174,7 @@ export default function DoctorJourneyPage() {
             <div className="flex-1 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-outfit)' }}>Consult {doctor.name}</h2>
               <p className="text-lg text-slate-500 mb-8">Take the first step towards recovery. Book a personalized consultation today.</p>
-              <Link href={`/appointment?doctor=${doctor.id}`}>
-                <Button className="h-16 px-12 rounded-2xl text-xl">Confirm Appointment</Button>
-              </Link>
+              <Button onClick={() => openModal(doctor.id)} className="h-16 px-12 rounded-2xl text-xl">Confirm Appointment</Button>
             </div>
           </div>
         </div>

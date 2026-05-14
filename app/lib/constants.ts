@@ -2,7 +2,8 @@ export const BRAND = {
   teal: '#0F5B5D',
   red: '#D81120',
   tealLight: '#E6F0F0',
-  redLight: '#FBE7E8'
+  redLight: '#FBE7E8',
+  lime: '#CCFF00'
 };
 
 export const DOCTORS = [

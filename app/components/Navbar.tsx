@@ -7,12 +7,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { BRAND, modernEase } from '../lib/constants';
 import { CarePlusLogo, Button } from './UIElements';
+import { useAppointment } from '../lib/AppointmentContext';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredPath, setHoveredPath] = useState<string | null>(null);
   const pathname = usePathname();
+  const { openModal } = useAppointment();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -126,14 +128,15 @@ export const Navbar = () => {
                   +91 77010 10703
                 </a>
               </div>
-              <Link href="/appointment">
-                <Button className={`
+              <Button 
+                onClick={() => openModal()}
+                className={`
                   h-12 px-7 rounded-xl text-sm font-bold shadow-xl transition-all duration-300
                   ${useLightText ? 'bg-white text-slate-900 hover:bg-teal-50 hover:scale-105' : 'hover:scale-105'}
-                `}>
-                  Book Visit
-                </Button>
-              </Link>
+                `}
+              >
+                Book Visit
+              </Button>
             </div>
 
             {/* Mobile Toggle */}
@@ -193,11 +196,15 @@ export const Navbar = () => {
             </div>
 
             <div className="p-8 bg-slate-50 border-t border-slate-100">
-              <Link href="/appointment" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full h-16 rounded-2xl text-lg font-bold shadow-2xl mb-6">
-                  Secure Appointment
-                </Button>
-              </Link>
+              <Button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  openModal();
+                }}
+                className="w-full h-16 rounded-2xl text-lg font-bold shadow-2xl mb-6"
+              >
+                Secure Appointment
+              </Button>
               <div className="flex items-center justify-between px-2">
                 <div className="flex flex-col">
                   <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Emergency 24/7</span>

@@ -5,9 +5,11 @@ import { Bone, ArrowRight, CheckCircle2, ShieldCheck, Clock } from 'lucide-react
 import Link from 'next/link';
 import { BRAND, handleImageFallback, fadeUpVariant, staggerContainer, modernEase } from '../lib/constants';
 import { SectionHeading, Button } from '../components/UIElements';
+import { useAppointment } from '../lib/AppointmentContext';
 import { motion } from 'framer-motion';
 
 export default function OrthopedicPage() {
+  const { openModal } = useAppointment();
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Cinematic Hero */}
@@ -23,16 +25,14 @@ export default function OrthopedicPage() {
             <motion.div variants={fadeUpVariant} className="w-20 h-20 rounded-[2rem] bg-teal-500/20 text-teal-400 flex items-center justify-center mb-8 border border-teal-500/30">
               <Bone className="w-10 h-10" />
             </motion.div>
-            <motion.h1 variants={fadeUpVariant} className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'var(--font-outfit)' }}>
-              Advanced <br /><span className="text-teal-400">Orthopedic Care</span>
+            <motion.h1 variants={fadeUpVariant} className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
+              Advanced <br /><span className="font-bold" style={{ color: BRAND.teal }}>Orthopedic Care</span>
             </motion.h1>
             <motion.p variants={fadeUpVariant} className="text-2xl text-slate-400 font-medium mb-10 leading-relaxed">
               Led by Dr. Varun Goel, we provide Raipur's most advanced solutions for bone, joint, and spinal health.
             </motion.p>
             <motion.div variants={fadeUpVariant} className="flex flex-wrap gap-4">
-              <Link href="/appointment">
-                <Button className="h-16 px-10 rounded-2xl text-lg">Book Consultation</Button>
-              </Link>
+              <Button onClick={() => openModal('', 'Orthopedic Consultation')} className="h-16 px-10 rounded-2xl text-lg">Book Consultation</Button>
               <Button variant="secondary" onClick={() => window.open('https://wa.me/917701010703', '_blank')} className="bg-white/10 border-white/20 text-white h-16 px-10 rounded-2xl text-lg hover:bg-white/20">
                 Contact Trauma Center
               </Button>
