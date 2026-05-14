@@ -13,12 +13,12 @@ export const Footer = () => (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="flex items-center gap-3 mb-8 bg-white/5 p-3 rounded-2xl inline-flex border border-white/10">
             <CarePlusLogo className="w-10 h-10" />
             <span className="text-2xl font-bold tracking-tight text-white leading-none" style={{ fontFamily: 'var(--font-outfit)' }}>Care Plus</span>
           </div>
-          <p className="text-slate-400 leading-relaxed mb-8 text-lg">
+          <p className="text-slate-400 leading-relaxed mb-8 text-base md:text-lg">
             Modern technology, trusted expertise, and compassionate patient care under one roof in Raipur.
           </p>
           <div className="flex gap-4">

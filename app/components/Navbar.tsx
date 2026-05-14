@@ -29,14 +29,15 @@ export const Navbar = () => {
     { href: '/contact', label: 'Contact' }
   ];
 
-  const isActive = (href: string) => {
-    if (href === '/' && pathname !== '/') return false;
-    return pathname.startsWith(href);
-  };
+  // All pages now have a cinematic dark hero, so we use light text on all of them when not scrolled
+  const useLightText = !isScrolled;
 
-  // Determine if the navbar should be "dark mode" (white text) based on scroll and current page
-  const isDarkHeroPage = pathname === '/' || pathname === '/orthopedic' || pathname === '/pathology';
-  const useLightText = isDarkHeroPage && !isScrolled;
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    if (href === '/services' && (pathname === '/orthopedic' || pathname === '/pathology' || pathname.startsWith('/services/'))) return true;
+    if (href === '/doctors' && pathname.startsWith('/doctors/')) return true;
+    return pathname === href;
+  };
 
   return (
     <>
