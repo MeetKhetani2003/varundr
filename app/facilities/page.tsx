@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GALLERY_IMAGES, handleImageFallback, modernEase, fadeUpVariant, staggerContainer } from '../lib/constants';
+import { GALLERY_IMAGES, handleImageFallback, modernEase, fadeUpVariant, staggerContainer, BRAND } from '../lib/constants';
 import { SectionHeading } from '../components/UIElements';
 import { Building2, ShieldCheck, Microscope, Thermometer } from 'lucide-react';
 
