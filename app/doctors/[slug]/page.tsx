@@ -29,10 +29,10 @@ export default function DoctorJourneyPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Profile Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 opacity-40">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+        <div className="absolute inset-0">
            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" alt="Doctor Hero Bg" className="w-full h-full object-cover" />
-           <div className="absolute inset-0 bg-slate-950/60" />
+           <div className="absolute inset-0 bg-slate-950/70" />
            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
         
@@ -96,7 +96,7 @@ export default function DoctorJourneyPage() {
       </section>
 
       {/* 2. Professional Journey (Timeline) */}
-      <section className="section-padding bg-slate-50">
+      <section className="section-padding bg-white">
         <div className="main-container max-w-4xl">
           <SectionHeading subtitle="Professional Evolution" title="The Journey of Excellence" centered />
           
@@ -130,28 +130,28 @@ export default function DoctorJourneyPage() {
       </section>
 
       {/* 3. Expertise & Achievements */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-slate-950 text-white">
         <div className="main-container">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-12" style={{ fontFamily: 'var(--font-outfit)' }}>Core Expertise</h2>
+              <h2 className="text-4xl font-bold text-white mb-12" style={{ fontFamily: 'var(--font-outfit)' }}>Core Expertise</h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {doctor.expertise.map((skill: string, i: number) => (
-                  <div key={i} className="flex items-center gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
-                    <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
+                  <div key={i} className="flex items-center gap-4 p-6 rounded-3xl bg-white/5 border border-white/10">
+                    <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
-                    <span className="font-bold text-slate-800">{skill}</span>
+                    <span className="font-bold text-white">{skill}</span>
                   </div>
                 ))}
               </div>
             </div>
             
             <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-12" style={{ fontFamily: 'var(--font-outfit)' }}>Key Achievements</h2>
+              <h2 className="text-4xl font-bold text-white mb-12" style={{ fontFamily: 'var(--font-outfit)' }}>Key Achievements</h2>
               <div className="space-y-6">
                 {doctor.achievements.map((ach: string, i: number) => (
-                  <div key={i} className="flex items-start gap-6 p-6 rounded-3xl bg-slate-900 text-white">
+                  <div key={i} className="flex items-start gap-6 p-6 rounded-3xl bg-white/5 border border-white/10 text-white">
                     <div className="w-12 h-12 rounded-2xl bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
                       <Award className="w-7 h-7" />
                     </div>
@@ -165,7 +165,7 @@ export default function DoctorJourneyPage() {
       </section>
 
       {/* 4. Bottom Booking Section */}
-      <section className="section-padding bg-slate-50">
+      <section className="section-padding bg-white">
         <div className="main-container max-w-5xl">
           <div className="bg-white rounded-[4rem] p-12 md:p-20 shadow-xl border border-slate-100 flex flex-col md:flex-row items-center gap-12">
             <div className="w-40 h-40 rounded-full overflow-hidden shrink-0 border-4 border-slate-50">

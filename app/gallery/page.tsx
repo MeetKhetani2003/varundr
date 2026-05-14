@@ -19,7 +19,7 @@ export default function GalleryPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Header */}
-      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
         <div className="absolute inset-0">
           <img src={GALLERY_IMAGES[1]} alt="Gallery Bg" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-slate-950/70" />
@@ -142,9 +142,9 @@ export default function GalleryPage() {
       </section>
 
       {/* 3. CTA */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-slate-950 text-white">
         <div className="main-container text-center">
-          <div className="bg-[#0F5B5D] rounded-[4rem] p-16 md:p-24 relative overflow-hidden text-white">
+          <div className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-16 md:p-24 relative overflow-hidden text-white border border-white/10">
              <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
              <h2 className="text-4xl md:text-6xl font-bold mb-8 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Experience it in person.</h2>
              <p className="text-teal-50/70 text-xl mb-12 max-w-2xl mx-auto relative z-10">Schedule a facility tour or consult with our experts today.</p>

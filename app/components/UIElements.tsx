@@ -37,20 +37,20 @@ export const Button = ({ children, variant = 'primary', className = '', onClick,
   );
 };
 
-export const SectionHeading = ({ title, subtitle, centered = false, responsive = true }: { title: string; subtitle?: string; centered?: boolean; responsive?: boolean }) => (
+export const SectionHeading = ({ title, subtitle, centered = false, responsive = true, isDark = false }: { title: string; subtitle?: string; centered?: boolean; responsive?: boolean; isDark?: boolean }) => (
   <div className={`mb-12 md:mb-16 ${centered ? 'text-center flex flex-col items-center' : responsive ? 'text-center md:text-left flex flex-col items-center md:items-start' : ''}`}>
     {subtitle && (
       <motion.span
         variants={fadeUpVariant}
         className="font-bold tracking-[0.15em] uppercase text-[10px] md:text-xs mb-3 block"
-        style={{ color: BRAND.red }}
+        style={{ color: isDark ? BRAND.teal : BRAND.red }}
       >
         {subtitle}
       </motion.span>
     )}
     <motion.h2
       variants={fadeUpVariant}
-      className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight md:leading-[1.1]"
+      className={`text-3xl md:text-5xl font-bold tracking-tight leading-tight md:leading-[1.1] ${isDark ? 'text-white' : 'text-slate-900'}`}
       style={{ fontFamily: 'var(--font-outfit)' }}
     >
       {title}

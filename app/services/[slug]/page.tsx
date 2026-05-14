@@ -31,10 +31,11 @@ export default function ServiceDetailPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Hero Header */}
-      <section className="relative pt-40 pb-32 overflow-hidden bg-slate-950">
-        <div className="absolute inset-0 opacity-30">
-          <img src={service.image} alt={service.title} className="w-full h-full object-cover blur-sm" />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950" />
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+        <div className="absolute inset-0">
+          <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-slate-950/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
         
         <div className="main-container relative z-10">
@@ -67,7 +68,7 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* 2. Content Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-white">
         <div className="main-container">
           <div className="grid lg:grid-cols-12 gap-16">
             
@@ -146,9 +147,9 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* 3. CTA Bottom */}
-      <section className="pb-32">
+      <section className="pb-32 bg-white">
         <div className="main-container">
-          <div className="bg-slate-50 rounded-[4rem] p-16 flex flex-col md:flex-row items-center justify-between gap-10 border border-slate-100">
+          <div className="bg-slate-50 rounded-[4rem] p-16 flex flex-col md:flex-row items-center justify-between gap-10 border border-slate-100 shadow-sm">
             <div>
               <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-outfit)' }}>Start your healing <br />journey today.</h2>
               <p className="text-xl text-slate-500">Expert medical care is just a booking away.</p>

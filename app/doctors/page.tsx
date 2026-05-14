@@ -11,7 +11,7 @@ export default function DoctorsPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Cinematic Header */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" alt="Doctors Bg" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-slate-950/70" />
@@ -89,11 +89,11 @@ export default function DoctorsPage() {
       </section>
 
       {/* 3. Global Trust */}
-      <section className="section-padding bg-slate-50">
+      <section className="section-padding bg-slate-950 text-white">
         <div className="main-container text-center">
-          <div className="max-w-4xl mx-auto bg-white p-16 rounded-[4rem] border border-slate-100 shadow-xl">
-             <SectionHeading subtitle="Clinical Excellence" title="Committed to Raipur's Well-being" centered />
-             <p className="text-xl text-slate-500 mb-10 leading-relaxed">
+          <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-md p-16 rounded-[4rem] border border-white/10 shadow-xl">
+             <SectionHeading subtitle="Clinical Excellence" title="Committed to Raipur's Well-being" centered isDark />
+             <p className="text-xl text-slate-400 mb-10 leading-relaxed">
                Our specialists are regular contributors to medical research and stay at the forefront of surgical and diagnostic innovations.
              </p>
              <div className="flex flex-wrap justify-center gap-12">

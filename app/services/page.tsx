@@ -115,11 +115,11 @@ export default function ServicesPage() {
       </section>
 
       {/* 3. Features Section */}
-      <section className="section-padding bg-slate-50">
+      <section className="section-padding bg-slate-950 text-white">
         <div className="main-container">
-          <div className="bg-white rounded-[3rem] md:rounded-[4rem] p-6 sm:p-10 md:p-20 shadow-xl border border-slate-100 grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="bg-white/5 backdrop-blur-md rounded-[3rem] md:rounded-[4rem] p-6 sm:p-10 md:p-20 shadow-xl border border-white/10 grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="text-center lg:text-left">
-              <SectionHeading subtitle="Service Standards" title="Committed to Clinical Excellence" />
+              <SectionHeading subtitle="Service Standards" title="Committed to Clinical Excellence" isDark />
               <div className="space-y-4 md:space-y-6 mt-8 md:mt-10">
                 {[
                   "NABL Standard Pathology Lab",
@@ -128,8 +128,8 @@ export default function ServicesPage() {
                   "Instant Digital X-Ray Processing",
                   "Comprehensive Post-Op Rehabilitation"
                 ].map((feature, i) => (
-                  <div key={i} className="flex items-center gap-3 md:gap-4 text-base sm:text-lg md:text-xl font-bold text-slate-800 text-left">
-                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
+                  <div key={i} className="flex items-center gap-3 md:gap-4 text-base sm:text-lg md:text-xl font-bold text-white text-left">
+                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5" />
                     </div>
                     {feature}

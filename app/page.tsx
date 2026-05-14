@@ -62,16 +62,16 @@ const ServiceIconCard = ({ title, icon: Icon, delay = 0 }: any) => (
   </motion.div>
 );
 
-const FAQItem = ({ question, answer, isOpen, onClick }: any) => (
-  <div className="border-b border-slate-100 last:border-0">
+const FAQItem = ({ question, answer, isOpen, onClick, isDark = false }: any) => (
+  <div className={`border-b ${isDark ? 'border-white/10' : 'border-slate-100'} last:border-0`}>
     <button
       onClick={onClick}
-      className="flex w-full items-center justify-between py-6 text-left"
+      className="flex w-full items-center justify-between py-6 text-left group"
     >
-      <span className="text-xl font-bold text-slate-900" style={{ fontFamily: 'var(--font-outfit)' }}>{question}</span>
+      <span className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-900'} group-hover:text-teal-400 transition-colors`} style={{ fontFamily: 'var(--font-outfit)' }}>{question}</span>
       <motion.div
         animate={{ rotate: isOpen ? 180 : 0 }}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-slate-400"
+        className={`flex h-10 w-10 items-center justify-center rounded-full ${isDark ? 'bg-white/10 text-teal-400' : 'bg-slate-50 text-slate-400'}`}
       >
         <ChevronDown className="h-6 w-6" />
       </motion.div>
@@ -85,7 +85,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }: any) => (
           transition={{ duration: 0.3 }}
           className="overflow-hidden"
         >
-          <p className="pb-6 text-lg text-slate-600 leading-relaxed">{answer}</p>
+          <p className={`pb-6 text-lg ${isDark ? 'text-slate-400' : 'text-slate-600'} leading-relaxed`}>{answer}</p>
         </motion.div>
       )}
     </AnimatePresence>
@@ -230,12 +230,13 @@ export default function HomePage() {
       </section>
 
       {/* 2.5 Certification & Trust Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-slate-950 text-white overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 20% 30%, #0F5B5D 0%, transparent 40%)' }} />
         <div className="main-container">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-              <SectionHeading subtitle="Certified Excellence" title="A Legacy of Trust and Medical Precision" />
-              <p className="text-xl text-slate-600 leading-relaxed mb-10">
+              <SectionHeading subtitle="Certified Excellence" title="A Legacy of Trust and Medical Precision" isDark />
+              <p className="text-xl text-slate-400 leading-relaxed mb-10">
                 At Care Plus Healthcentre, our commitment to patient safety and diagnostic accuracy is backed by national certifications and a decade of specialized expertise. We don't just treat; we care with precision.
               </p>
 
@@ -246,13 +247,13 @@ export default function HomePage() {
                   { icon: CheckCircle2, title: "NABL Lab", desc: "Excellence in pathological testing" },
                   { icon: Heart, title: "Patient First", desc: "100% focused on patient recovery" }
                 ].map((item, i) => (
-                  <motion.div key={i} variants={fadeUpVariant} className="flex items-start gap-4 p-4 rounded-3xl hover:bg-slate-50 transition-colors">
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 bg-teal-50 text-teal-600">
+                  <motion.div key={i} variants={fadeUpVariant} className="flex items-start gap-4 p-4 rounded-3xl hover:bg-white/5 transition-colors group">
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 bg-teal-500/10 text-teal-400 group-hover:bg-teal-500 group-hover:text-white transition-all">
                       <item.icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
-                      <p className="text-sm text-slate-500 leading-snug">{item.desc}</p>
+                      <h4 className="font-bold text-white mb-1">{item.title}</h4>
+                      <p className="text-sm text-slate-400 leading-snug">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -274,15 +275,15 @@ export default function HomePage() {
               <motion.div
                 animate={{ y: [0, -20, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-10 -left-10 bg-white p-8 rounded-[2.5rem] shadow-2xl border border-slate-100 z-20 max-w-[240px]"
+                className="absolute -bottom-10 -left-10 bg-slate-900 p-8 rounded-[2.5rem] shadow-2xl border border-white/10 z-20 max-w-[240px]"
               >
                 <div className="flex items-center gap-4 mb-3">
-                  <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-600">
+                  <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500">
                     <Star className="w-5 h-5 fill-current" />
                   </div>
-                  <div className="font-bold text-slate-900 leading-tight">Raipur's Top Rated Clinic</div>
+                  <div className="font-bold text-white leading-tight">Raipur's Top Rated Clinic</div>
                 </div>
-                <p className="text-xs text-slate-500">Consistently ranked #1 for orthopedic and pathology services since 2015.</p>
+                <p className="text-xs text-slate-400">Consistently ranked #1 for orthopedic and pathology services since 2015.</p>
               </motion.div>
 
               {/* Decorative elements */}
@@ -294,7 +295,7 @@ export default function HomePage() {
       </section>
 
       {/* 3. Departments (Cinematic) */}
-      <section className="section-padding bg-slate-50/50">
+      <section className="section-padding bg-white">
         <div className="main-container">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-20 gap-8 text-center md:text-left">
             <SectionHeading subtitle="Specialized Care" title="Our Departments" />
@@ -331,19 +332,31 @@ export default function HomePage() {
       </section>
 
       {/* 4. Core Services Grid */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-slate-950">
         <div className="main-container text-center">
-          <SectionHeading subtitle="Quick Services" title="What We Offer" centered />
+          <SectionHeading subtitle="Quick Services" title="What We Offer" centered isDark />
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-16">
             {services.map((svc, i) => (
-              <ServiceIconCard key={i} {...svc} delay={i * 0.1} />
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="flex flex-col items-center gap-4 rounded-3xl bg-white/5 p-6 shadow-sm border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all cursor-default group"
+              >
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-teal-400 transition-colors group-hover:bg-teal-600 group-hover:text-white">
+                  <svc.icon className="h-8 w-8" />
+                </div>
+                <span className="text-center font-bold text-white">{svc.title}</span>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Doctor Spotlight (High-Contrast Premium Cards) */}
-      <section className="py-32 bg-slate-50 relative overflow-hidden">
+      {/* 5. Doctor Spotlight */}
+      <section className="py-32 bg-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         
         <div className="main-container relative z-10">
@@ -403,11 +416,11 @@ export default function HomePage() {
       </section>
 
       {/* 6. Cinematic Gallery Preview */}
-      <section className="section-padding bg-white overflow-hidden relative">
+      <section className="section-padding bg-slate-950 overflow-hidden relative">
         <div className="main-container mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 text-center md:text-left">
           <div className="max-w-2xl mx-auto md:mx-0">
-            <SectionHeading subtitle="Visual Tour" title="A Glimpse into Clinical Excellence" />
-            <p className="text-lg md:text-xl text-slate-500 mt-6 leading-relaxed">
+            <SectionHeading subtitle="Visual Tour" title="A Glimpse into Clinical Excellence" isDark />
+            <p className="text-lg md:text-xl text-slate-400 mt-6 leading-relaxed">
               Explore our state-of-the-art facility designed for maximum patient comfort and diagnostic precision. From modular OTs to high-precision labs.
             </p>
           </div>
@@ -448,12 +461,12 @@ export default function HomePage() {
       </section>
 
       {/* 7. Google Verified Testimonials Carousel */}
-      <section className="section-padding bg-slate-50 relative overflow-hidden">
+      <section className="section-padding bg-white relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-5 pointer-events-none" 
              style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #0F5B5D 0%, transparent 70%)' }} />
         
         <div className="main-container mb-20 text-center">
-          <div className="inline-flex items-center gap-2 mb-4 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100">
+          <div className="inline-flex items-center gap-2 mb-4 bg-slate-50 px-4 py-2 rounded-full shadow-sm border border-slate-100">
             <div className="flex text-yellow-400">
               {[1, 2, 3, 4, 5].map(s => <Star key={s} className="fill-current w-4 h-4" />)}
             </div>
@@ -472,7 +485,7 @@ export default function HomePage() {
             transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
           >
             {[...testimonials, ...testimonials].map((review, i) => (
-              <div key={review.id} className="w-[320px] md:w-[450px] shrink-0 bg-white p-8 md:p-10 rounded-[2.5rem] md:rounded-[3.5rem] shadow-[0_15px_50px_rgba(0,0,0,0.03)] border border-slate-100 relative group hover:shadow-2xl transition-all duration-500">
+              <div key={i} className="w-[320px] md:w-[450px] shrink-0 bg-white p-8 md:p-10 rounded-[2.5rem] md:rounded-[3.5rem] shadow-[0_15px_50px_rgba(0,0,0,0.03)] border border-slate-100 relative group hover:shadow-2xl transition-all duration-500">
                 <div className="absolute top-8 right-10 flex gap-1">
                    <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100 group-hover:scale-110 transition-transform">
                       <svg className="w-6 h-6" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" /><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" /><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" /><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" /></svg>
@@ -507,10 +520,10 @@ export default function HomePage() {
       </section>
 
       {/* 8. FAQ Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-slate-950 text-white">
         <div className="main-container max-w-4xl">
-          <SectionHeading subtitle="Patient Resources" title="Frequently Asked Questions" centered />
-          <div className="mt-16 bg-slate-50 p-8 md:p-12 rounded-[3rem] border border-slate-100">
+          <SectionHeading subtitle="Patient Resources" title="Frequently Asked Questions" centered isDark />
+          <div className="mt-16 bg-white/5 p-8 md:p-12 rounded-[3rem] border border-white/10">
             {faqs.map((faq, i) => (
               <FAQItem
                 key={i}
@@ -518,6 +531,7 @@ export default function HomePage() {
                 answer={faq.a}
                 isOpen={openFaq === i}
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                isDark={true}
               />
             ))}
           </div>
@@ -525,7 +539,7 @@ export default function HomePage() {
       </section>
 
       {/* 9. Blogs / Health Insights */}
-      <section className="section-padding bg-slate-50/50">
+      <section className="section-padding bg-white">
         <div className="main-container">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-20 gap-8 text-center md:text-left">
             <SectionHeading subtitle="Health Education" title="Health Insights & Blogs" />

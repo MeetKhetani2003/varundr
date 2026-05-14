@@ -11,7 +11,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* 1. Hero / Header Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&q=80&w=1200" alt="About Legacy" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-slate-950/70" />
@@ -80,10 +80,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Meet the Founders (Detailed Linkage) */}
-      <section className="section-padding bg-slate-50">
+      {/* 3. Meet the Founders */}
+      <section className="section-padding bg-slate-950 text-white">
         <div className="main-container">
-          <SectionHeading subtitle="Leadership & Legacy" title="Meet the Visionaries" centered />
+          <SectionHeading subtitle="Leadership & Legacy" title="Meet the Visionaries" centered isDark />
           
           <div className="grid lg:grid-cols-2 gap-12 mt-20 max-w-6xl mx-auto">
             {DOCTORS.map((doc, idx) => (
@@ -93,14 +93,14 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
-                className="bg-white p-10 rounded-[4rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all group flex flex-col items-center text-center"
+                className="bg-white/5 p-10 rounded-[4rem] border border-white/10 shadow-sm hover:shadow-2xl transition-all group flex flex-col items-center text-center"
               >
-                <div className="w-48 h-48 rounded-full overflow-hidden mb-8 border-8 border-slate-50 shadow-xl group-hover:scale-105 transition-transform">
+                <div className="w-48 h-48 rounded-full overflow-hidden mb-8 border-8 border-white/5 shadow-xl group-hover:scale-105 transition-transform">
                   <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-3xl font-bold text-slate-900 mb-2" style={{ fontFamily: 'var(--font-outfit)' }}>{doc.name}</h3>
-                <div className="text-teal-600 font-bold uppercase tracking-widest text-sm mb-6">{doc.qualifications}</div>
-                <p className="text-slate-600 mb-10 leading-relaxed">
+                <h3 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: 'var(--font-outfit)' }}>{doc.name}</h3>
+                <div className="text-teal-400 font-bold uppercase tracking-widest text-sm mb-6">{doc.qualifications}</div>
+                <p className="text-slate-400 mb-10 leading-relaxed">
                   Leading with over 15 years of excellence, {doc.name.split(' ')[1]} has pioneered advanced medical practices in Raipur.
                 </p>
                 <Link href={`/doctors/${doc.id === 'dr-varun' ? 'dr-varun' : 'dr-neha'}`}>
