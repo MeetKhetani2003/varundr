@@ -17,7 +17,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-slate-950/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
-        <div className="container relative z-10 px-4 mx-auto text-center">
+        <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-400 text-sm font-bold uppercase tracking-[0.3em] mb-6">Our Legacy</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
@@ -32,8 +32,8 @@ export default function AboutPage() {
       </section>
 
       {/* 2. Mission & Vision */}
-      <section className="py-32">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding">
+        <div className="main-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
               <SectionHeading subtitle="Why We Exist" title="Driven by a Purpose Higher than Healthcare" />
@@ -81,8 +81,8 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Meet the Founders (Detailed Linkage) */}
-      <section className="py-32 bg-slate-50">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding bg-slate-50">
+        <div className="main-container">
           <SectionHeading subtitle="Leadership & Legacy" title="Meet the Visionaries" centered />
           
           <div className="grid lg:grid-cols-2 gap-12 mt-20 max-w-6xl mx-auto">
@@ -113,8 +113,8 @@ export default function AboutPage() {
       </section>
 
       {/* 4. Trust Pillars */}
-      <section className="py-32 bg-white">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding bg-white">
+        <div className="main-container">
           <div className="grid md:grid-cols-4 gap-8">
             {[
               { icon: Award, title: "Excellence", desc: "Award-winning orthopedic procedures" },
@@ -135,8 +135,8 @@ export default function AboutPage() {
       </section>
 
       {/* 5. CTA Section */}
-      <section className="py-24">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding">
+        <div className="main-container">
           <div className="bg-[#0F5B5D] rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 20% 30%, #ffffff 0%, transparent 40%)' }} />
              <h2 className="text-4xl md:text-6xl font-bold mb-8 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready to experience <br />world-class care?</h2>

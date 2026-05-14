@@ -118,7 +118,7 @@ export default function AppointmentPage() {
           <div className="absolute inset-0 bg-slate-950/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
-        <div className="container relative z-10 px-4 mx-auto text-center">
+        <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-400 text-sm font-bold uppercase tracking-[0.3em] mb-6">Priority Booking</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
@@ -131,7 +131,7 @@ export default function AppointmentPage() {
         </div>
       </section>
 
-      <div className="container px-4 relative z-10 mx-auto -mt-16 mb-32">
+      <div className="main-container relative z-10 -mt-16 mb-32">
 
           <Suspense fallback={<div className="h-[600px] bg-white rounded-[4rem] animate-pulse" />}>
             <AppointmentForm />

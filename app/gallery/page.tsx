@@ -25,7 +25,7 @@ export default function GalleryPage() {
           <div className="absolute inset-0 bg-slate-950/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
-        <div className="container relative z-10 px-4 mx-auto text-center">
+        <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-400 text-sm font-bold uppercase tracking-[0.3em] mb-6">Visual Tour</span>
             <h1 className="text-5xl md:text-7xl font-light text-white mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
@@ -58,8 +58,8 @@ export default function GalleryPage() {
       </section>
 
       {/* 2. Gallery Grid */}
-      <section className="py-24 bg-slate-50/50">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding bg-slate-50/50">
+        <div className="main-container">
           <AnimatePresence mode="wait">
             {/* Content for 'Photos' or 'All' */}
             {(activeTab === 'photos' || activeTab === 'all') && (
@@ -142,8 +142,8 @@ export default function GalleryPage() {
       </section>
 
       {/* 3. CTA */}
-      <section className="py-24 bg-white">
-        <div className="container px-4 mx-auto text-center">
+      <section className="section-padding bg-white">
+        <div className="main-container text-center">
           <div className="bg-[#0F5B5D] rounded-[4rem] p-16 md:p-24 relative overflow-hidden text-white">
              <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
              <h2 className="text-4xl md:text-6xl font-bold mb-8 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Experience it in person.</h2>

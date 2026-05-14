@@ -37,7 +37,7 @@ export default function ServiceDetailPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/80 to-slate-950" />
         </div>
         
-        <div className="container relative z-10 px-4 mx-auto">
+        <div className="main-container relative z-10">
           <Link href="/services" className="inline-flex items-center gap-2 text-teal-400 font-bold mb-12 hover:gap-4 transition-all">
             <ArrowLeft className="w-5 h-5" /> Back to Services
           </Link>
@@ -67,8 +67,8 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* 2. Content Section */}
-      <section className="py-24">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding">
+        <div className="main-container">
           <div className="grid lg:grid-cols-12 gap-16">
             
             {/* Left: Detailed Info */}
@@ -147,7 +147,7 @@ export default function ServiceDetailPage() {
 
       {/* 3. CTA Bottom */}
       <section className="pb-32">
-        <div className="container px-4 mx-auto">
+        <div className="main-container">
           <div className="bg-slate-50 rounded-[4rem] p-16 flex flex-col md:flex-row items-center justify-between gap-10 border border-slate-100">
             <div>
               <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-outfit)' }}>Start your healing <br />journey today.</h2>

@@ -47,7 +47,7 @@ export const Navbar = () => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}
       >
-        <div className="container mx-auto px-6 lg:px-10">
+        <div className="main-container">
           <div className={`
             relative flex items-center justify-between transition-all duration-500 rounded-[2rem]
             ${isScrolled 

@@ -161,7 +161,7 @@ export default function HomePage() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="container relative z-20 mx-auto px-6 lg:px-10 h-full flex items-center">
+        <div className="main-container relative z-20 h-full flex items-center">
           <div className="max-w-5xl">
             <AnimatePresence mode="wait">
               <motion.div key={`content-${slide.id}`} initial="hidden" animate="visible" exit="exit" variants={staggerContainer}>
@@ -213,8 +213,8 @@ export default function HomePage() {
       </section>
 
       {/* 2. Quick Stats */}
-      <section className="relative z-30 -mt-10 mb-16 container px-4 sm:px-6 lg:px-8 mx-auto">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 p-10 flex flex-wrap justify-between items-center gap-8">
+      <section className="relative z-30 -mt-10 mb-16 main-container">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant} className="bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 p-8 md:p-10 grid grid-cols-2 lg:grid-cols-4 gap-8 items-center">
           {[
             { num: '15+', label: 'Years Experience' },
             { num: '10k+', label: 'Happy Patients' },
@@ -230,8 +230,8 @@ export default function HomePage() {
       </section>
 
       {/* 2.5 Certification & Trust Section */}
-      <section className="py-24 bg-white">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding bg-white">
+        <div className="main-container">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
               <SectionHeading subtitle="Certified Excellence" title="A Legacy of Trust and Medical Precision" />
@@ -294,8 +294,8 @@ export default function HomePage() {
       </section>
 
       {/* 3. Departments (Cinematic) */}
-      <section className="py-32 bg-slate-50/50">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding bg-slate-50/50">
+        <div className="main-container">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-20 gap-8 text-center md:text-left">
             <SectionHeading subtitle="Specialized Care" title="Our Departments" />
             <Link href="/services" className="w-full md:w-auto">
@@ -331,8 +331,8 @@ export default function HomePage() {
       </section>
 
       {/* 4. Core Services Grid */}
-      <section className="py-24 bg-white">
-        <div className="container px-4 mx-auto text-center">
+      <section className="section-padding bg-white">
+        <div className="main-container text-center">
           <SectionHeading subtitle="Quick Services" title="What We Offer" centered />
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mt-16">
             {services.map((svc, i) => (
@@ -346,7 +346,7 @@ export default function HomePage() {
       <section className="py-32 bg-slate-50 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         
-        <div className="container px-4 mx-auto relative z-10">
+        <div className="main-container relative z-10">
           <SectionHeading subtitle="Medical Leadership" title="The Experts Behind Your Care" centered />
 
           <div className="grid lg:grid-cols-2 gap-12 mt-24 max-w-7xl mx-auto">
@@ -403,8 +403,8 @@ export default function HomePage() {
       </section>
 
       {/* 6. Cinematic Gallery Preview */}
-      <section className="py-32 bg-white overflow-hidden relative">
-        <div className="container px-4 mx-auto mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 text-center md:text-left">
+      <section className="section-padding bg-white overflow-hidden relative">
+        <div className="main-container mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 text-center md:text-left">
           <div className="max-w-2xl mx-auto md:mx-0">
             <SectionHeading subtitle="Visual Tour" title="A Glimpse into Clinical Excellence" />
             <p className="text-lg md:text-xl text-slate-500 mt-6 leading-relaxed">
@@ -448,11 +448,11 @@ export default function HomePage() {
       </section>
 
       {/* 7. Google Verified Testimonials Carousel */}
-      <section className="py-32 bg-slate-50 relative overflow-hidden">
+      <section className="section-padding bg-slate-50 relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-5 pointer-events-none" 
              style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #0F5B5D 0%, transparent 70%)' }} />
         
-        <div className="container px-4 mx-auto mb-20 text-center">
+        <div className="main-container mb-20 text-center">
           <div className="inline-flex items-center gap-2 mb-4 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100">
             <div className="flex text-yellow-400">
               {[1, 2, 3, 4, 5].map(s => <Star key={s} className="fill-current w-4 h-4" />)}
@@ -507,8 +507,8 @@ export default function HomePage() {
       </section>
 
       {/* 8. FAQ Section */}
-      <section className="py-32 bg-white">
-        <div className="container px-4 mx-auto max-w-4xl">
+      <section className="section-padding bg-white">
+        <div className="main-container max-w-4xl">
           <SectionHeading subtitle="Patient Resources" title="Frequently Asked Questions" centered />
           <div className="mt-16 bg-slate-50 p-8 md:p-12 rounded-[3rem] border border-slate-100">
             {faqs.map((faq, i) => (
@@ -525,8 +525,8 @@ export default function HomePage() {
       </section>
 
       {/* 9. Blogs / Health Insights */}
-      <section className="py-32 bg-slate-50/50">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding bg-slate-50/50">
+        <div className="main-container">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-20 gap-8 text-center md:text-left">
             <SectionHeading subtitle="Health Education" title="Health Insights & Blogs" />
             <Link href="#" className="w-full md:w-auto">
@@ -564,7 +564,7 @@ export default function HomePage() {
       <section className="bg-slate-950 relative overflow-hidden py-10 md:py-14 border-t border-white/5">
         <div className="absolute top-0 right-0 w-[600px] h-full bg-teal-500/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2" />
         
-        <div className="container px-4 mx-auto relative z-10">
+        <div className="main-container relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
             
             <div className="flex-1 text-center lg:text-left">

@@ -18,7 +18,7 @@ export default function OrthopedicPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
         
-        <div className="container relative z-10 px-4 mx-auto">
+        <div className="main-container relative z-10">
           <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="max-w-4xl">
             <motion.div variants={fadeUpVariant} className="w-20 h-20 rounded-[2rem] bg-teal-500/20 text-teal-400 flex items-center justify-center mb-8 border border-teal-500/30">
               <Bone className="w-10 h-10" />
@@ -42,8 +42,8 @@ export default function OrthopedicPage() {
       </section>
 
       {/* 2. Detailed Info */}
-      <section className="py-24">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding">
+        <div className="main-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
               <SectionHeading subtitle="Specialty Department" title="Restoring Mobility with Surgical Precision" />

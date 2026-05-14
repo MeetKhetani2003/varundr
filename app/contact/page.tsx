@@ -17,7 +17,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 bg-slate-950/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
-        <div className="container relative z-10 px-4 mx-auto text-center">
+        <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-400 text-sm font-bold uppercase tracking-[0.3em] mb-6">Contact Us</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
@@ -31,8 +31,8 @@ export default function ContactPage() {
       </section>
 
       {/* 2. Contact Info Cards */}
-      <section className="py-32">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding">
+        <div className="main-container">
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { icon: Phone, title: "Emergency & OP", info1: "+91 77010-10703", info2: "+91 77010-10704", color: "bg-teal-50 text-teal-600" },
@@ -60,8 +60,8 @@ export default function ContactPage() {
       </section>
 
       {/* 3. Interactive Map & Working Hours */}
-      <section className="py-24 bg-slate-50">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding bg-slate-50">
+        <div className="main-container">
           <div className="grid lg:grid-cols-12 gap-12 items-stretch">
             {/* Left: Map */}
             <div className="lg:col-span-8 rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white min-h-[500px]">
@@ -110,8 +110,8 @@ export default function ContactPage() {
       </section>
 
       {/* 4. Social Links & CTA */}
-      <section className="py-32">
-        <div className="container px-4 mx-auto text-center">
+      <section className="section-padding">
+        <div className="main-container text-center">
           <SectionHeading subtitle="Stay Connected" title="Follow Our Health Updates" centered />
           <div className="flex flex-wrap justify-center gap-6 mt-12">
             {[

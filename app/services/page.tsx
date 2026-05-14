@@ -62,7 +62,7 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-slate-950/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
-        <div className="container relative z-10 px-4 mx-auto text-center">
+        <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-400 text-sm font-bold uppercase tracking-[0.3em] mb-6">Care Excellence</span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
@@ -76,8 +76,8 @@ export default function ServicesPage() {
       </section>
 
       {/* 2. Services Grid */}
-      <section className="py-32">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding">
+        <div className="main-container">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((svc, idx) => (
               <motion.div
@@ -115,8 +115,8 @@ export default function ServicesPage() {
       </section>
 
       {/* 3. Features Section */}
-      <section className="py-32 bg-slate-50">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding bg-slate-50">
+        <div className="main-container">
           <div className="bg-white rounded-[3rem] md:rounded-[4rem] p-6 sm:p-10 md:p-20 shadow-xl border border-slate-100 grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="text-center lg:text-left">
               <SectionHeading subtitle="Service Standards" title="Committed to Clinical Excellence" />
@@ -149,8 +149,8 @@ export default function ServicesPage() {
       </section>
 
       {/* 4. Bottom CTA */}
-      <section className="py-24">
-        <div className="container px-4 mx-auto text-center">
+      <section className="section-padding">
+        <div className="main-container text-center">
           <div className="bg-slate-950 rounded-[4rem] p-16 md:p-24 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-10 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready for a <br />consultation?</h2>

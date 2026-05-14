@@ -36,7 +36,7 @@ export default function DoctorJourneyPage() {
            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
         </div>
         
-        <div className="container relative z-10 px-4 mx-auto">
+        <div className="main-container relative z-10">
           <Link href="/doctors" className="inline-flex items-center gap-2 text-teal-400 font-bold mb-12 hover:gap-4 transition-all">
             <ArrowLeft className="w-5 h-5" /> Back to Specialists
           </Link>
@@ -96,8 +96,8 @@ export default function DoctorJourneyPage() {
       </section>
 
       {/* 2. Professional Journey (Timeline) */}
-      <section className="py-32 bg-slate-50">
-        <div className="container px-4 mx-auto max-w-4xl">
+      <section className="section-padding bg-slate-50">
+        <div className="main-container max-w-4xl">
           <SectionHeading subtitle="Professional Evolution" title="The Journey of Excellence" centered />
           
           <div className="relative mt-20">
@@ -130,8 +130,8 @@ export default function DoctorJourneyPage() {
       </section>
 
       {/* 3. Expertise & Achievements */}
-      <section className="py-32 bg-white">
-        <div className="container px-4 mx-auto">
+      <section className="section-padding bg-white">
+        <div className="main-container">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-12" style={{ fontFamily: 'var(--font-outfit)' }}>Core Expertise</h2>
@@ -165,8 +165,8 @@ export default function DoctorJourneyPage() {
       </section>
 
       {/* 4. Bottom Booking Section */}
-      <section className="py-24 bg-slate-50">
-        <div className="container px-4 mx-auto max-w-5xl">
+      <section className="section-padding bg-slate-50">
+        <div className="main-container max-w-5xl">
           <div className="bg-white rounded-[4rem] p-12 md:p-20 shadow-xl border border-slate-100 flex flex-col md:flex-row items-center gap-12">
             <div className="w-40 h-40 rounded-full overflow-hidden shrink-0 border-4 border-slate-50">
                <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />

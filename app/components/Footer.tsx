@@ -10,7 +10,7 @@ export const Footer = () => (
   <footer className="bg-slate-900 text-slate-300 pt-24 pb-12 overflow-hidden relative">
     <div className="absolute top-0 right-0 w-1/2 h-full blur-[150px] rounded-full pointer-events-none opacity-10" style={{ backgroundColor: BRAND.teal }} />
 
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div className="main-container relative z-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
         <div className="lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
