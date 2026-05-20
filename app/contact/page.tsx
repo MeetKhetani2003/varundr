@@ -14,11 +14,11 @@ export default function ContactPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Cinematic Header */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200" alt="Contact Bg" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -26,7 +26,7 @@ export default function ContactPage() {
             <h1 className="text-6xl md:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
               Get in <span className="font-bold text-teal-400">Touch</span>
             </h1>
-            <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Reach out to Raipur's most trusted orthopedic and diagnostic centre. Whether it's an emergency or a routine check-up, we are just a call away.
             </p>
           </motion.div>
@@ -39,9 +39,9 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Phone, title: "Emergency & OP", info1: "+91 77010-10703", info2: "+91 77010-10704", color: "bg-teal-50 text-teal-600" },
-              { icon: MapPin, title: "Our Location", info1: "Amaseoni, Vidhan Sabha Road", info2: "Raipur (C.G.)", color: "bg-red-50 text-red-600" },
+              { icon: MapPin, title: "Our Location", info1: "Amaseoni, Vidhan Sabha Road", info2: "Next to Swarnbhoomi Colony, Raipur", color: "bg-red-50 text-red-600" },
               { icon: Mail, title: "Email Support", info1: "raipurcareplus@gmail.com", info2: "info@careplusraipur.com", color: "bg-blue-50 text-blue-600" },
-              { icon: Clock, title: "OPD Hours", info1: "Morning: 10:30 - 14:00", info2: "Evening: 18:00 - 21:00", color: "bg-yellow-50 text-yellow-600" }
+              { icon: Clock, title: "Clinic Hours", info1: "Monday - Sunday", info2: "9:00 AM - 8:00 PM", color: "bg-yellow-50 text-yellow-600" }
             ].map((card, i) => (
               <motion.div 
                 key={i}

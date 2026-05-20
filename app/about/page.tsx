@@ -14,11 +14,11 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* 1. Hero / Header Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&q=80&w=1200" alt="About Legacy" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -27,7 +27,7 @@ export default function AboutPage() {
               A Legacy of <br />
               <span className="font-bold" style={{ color: BRAND.teal }}>Healing & Trust</span>
             </h1>
-            <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Founded on the principles of clinical excellence and compassionate care, Care Plus Healthcentre has been Raipur's benchmark for orthopedic and diagnostic precision since 2015.
             </p>
           </motion.div>
@@ -65,15 +65,15 @@ export default function AboutPage() {
                 </div>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="relative rounded-[4rem] overflow-hidden shadow-2xl h-[600px]"
             >
               <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=1200" alt="Clinic Interior" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
               <div className="absolute bottom-10 left-10 right-10 p-8 bg-white/10 backdrop-blur-xl rounded-[2.5rem] border border-white/20">
                 <div className="text-white text-2xl font-bold mb-2">State-of-the-Art Facility</div>
                 <p className="text-slate-200">Equipped with the latest technology for orthopedic surgery and pathology diagnostics.</p>
@@ -87,11 +87,11 @@ export default function AboutPage() {
       <section className="section-padding bg-slate-50 overflow-hidden">
         <div className="main-container">
           <SectionHeading subtitle="Leadership & Legacy" title="The Hands Behind the Healing" centered />
-          
+
           <div className="space-y-32 mt-24">
             {/* Founder 1: Dr. Varun */}
             <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -106,12 +106,12 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <div className="font-bold text-slate-900 leading-tight">{DOCTORS[0].name}</div>
-                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Founder & Chief Surgeon</div>
+                    <div className="text-xs font-bold text-slate-300 uppercase tracking-widest">Founder & Chief Surgeon</div>
                   </div>
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -123,7 +123,7 @@ export default function AboutPage() {
                 <p className="text-xl text-slate-600 leading-relaxed mb-10">
                   {DOCTORS[0].name} began his journey in orthopedics with a clear vision—to bring advanced, evidence-based surgical services to Raipur with a focus on long-term recovery, not just temporary relief.
                 </p>
-                
+
                 <div className="grid sm:grid-cols-2 gap-8 mb-10">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-teal-600">
@@ -165,7 +165,7 @@ export default function AboutPage() {
 
             {/* Founder 2: Dr. Neha (Alternated) */}
             <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -180,12 +180,12 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <div className="font-bold text-slate-900 leading-tight">{DOCTORS[1].name}</div>
-                    <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Co-Founder & Pathologist</div>
+                    <div className="text-xs font-bold text-slate-300 uppercase tracking-widest">Co-Founder & Pathologist</div>
                   </div>
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -197,7 +197,7 @@ export default function AboutPage() {
                 <p className="text-xl text-slate-600 leading-relaxed mb-10">
                   {DOCTORS[1].name} established the pathology division at Care Plus with a singular goal—to provide diagnostic reports that clinicians can trust implicitly for life-critical decisions.
                 </p>
-                
+
                 <div className="grid sm:grid-cols-2 gap-8 mb-10">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-teal-600">
@@ -265,12 +265,12 @@ export default function AboutPage() {
       {/* 5. CTA Section */}
       <section className="pt-20 pb-32">
         <div className="main-container">
-          <div className="bg-[#0F5B5D] rounded-[3rem] md:rounded-[5rem] p-12 md:py-32 md:px-24 text-center text-white relative overflow-hidden shadow-2xl">
-             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 20% 30%, #ffffff 0%, transparent 40%)' }} />
-             <h2 className="text-4xl md:text-6xl font-bold mb-8 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready to experience <br />world-class care?</h2>
-             <Button onClick={() => openModal()} variant="secondary" className="bg-white text-[#0F5B5D] hover:bg-teal-50 h-16 px-12 rounded-2xl text-xl font-bold shadow-2xl border-0 relative z-10">
-               Book Your Visit Today
-             </Button>
+          <div className="bg-brand-teal rounded-[3rem] md:rounded-[5rem] p-12 md:py-32 md:px-24 text-center text-white relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 20% 30%, #ffffff 0%, transparent 40%)' }} />
+            <h2 className="text-3xl md:text-6xl font-bold mb-8 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready to experience <br />world-class care?</h2>
+            <Button onClick={() => openModal()} variant="secondary" className="bg-white text-brand-teal hover:bg-teal-50 h-16 px-12 rounded-2xl text-xl font-bold shadow-2xl border-0 relative z-10">
+              Book Your Visit Today
+            </Button>
           </div>
         </div>
       </section>

@@ -13,11 +13,11 @@ export default function OrthopedicPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Cinematic Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200" alt="Orthopedic Care" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         
         <div className="main-container relative z-10">
@@ -28,7 +28,7 @@ export default function OrthopedicPage() {
             <motion.h1 variants={fadeUpVariant} className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
               Advanced <br /><span className="font-bold" style={{ color: BRAND.teal }}>Orthopedic Care</span>
             </motion.h1>
-            <motion.p variants={fadeUpVariant} className="text-2xl text-slate-400 font-medium mb-10 leading-relaxed">
+            <motion.p variants={fadeUpVariant} className="text-2xl text-slate-300 font-medium mb-10 leading-relaxed">
               Led by Dr. Varun Goel, we provide Raipur's most advanced solutions for bone, joint, and spinal health.
             </motion.p>
             <motion.div variants={fadeUpVariant} className="flex flex-wrap gap-4">
@@ -54,7 +54,7 @@ export default function OrthopedicPage() {
               <div className="grid sm:grid-cols-2 gap-6 mb-12">
                 {[
                   { title: "Joint Replacement", desc: "Knee, Hip & Shoulder" },
-                  { title: "Trauma Care", desc: "24/7 Fracture Support" },
+                  { title: "Trauma Care", desc: "Fracture Support" },
                   { title: "Arthroscopy", desc: "Sports Injury Specialist" },
                   { title: "Spine Surgery", desc: "Advanced Neuro-Ortho Care" }
                 ].map((item, i) => (

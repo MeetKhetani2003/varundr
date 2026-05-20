@@ -13,11 +13,11 @@ export default function PathologyPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Cinematic Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200" alt="Pathology Lab" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         
         <div className="main-container relative z-10">
@@ -28,7 +28,7 @@ export default function PathologyPage() {
             <motion.h1 variants={fadeUpVariant} className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
               Precision <br /><span className="font-bold" style={{ color: BRAND.teal }}>Pathology</span>
             </motion.h1>
-            <motion.p variants={fadeUpVariant} className="text-2xl text-slate-400 font-medium mb-10 leading-relaxed">
+            <motion.p variants={fadeUpVariant} className="text-2xl text-slate-300 font-medium mb-10 leading-relaxed">
               Led by Dr. Neha Goel, our NABL-standard diagnostic lab provides the accuracy you can trust for your healing journey.
             </motion.p>
             <motion.div variants={fadeUpVariant} className="flex flex-wrap gap-4">

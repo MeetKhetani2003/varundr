@@ -41,7 +41,7 @@ export const AppointmentModal = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeModal}
-            className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
           />
 
           {/* Modal Container */}
@@ -53,7 +53,7 @@ export const AppointmentModal = () => {
             className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden bg-white rounded-[3rem] shadow-[0_30px_100px_rgba(0,0,0,0.4)] flex flex-col md:flex-row"
           >
             {/* Sidebar Info (Desktop) */}
-            <div className="hidden md:flex md:w-1/3 bg-slate-950 p-12 flex-col justify-between relative overflow-hidden">
+            <div className="hidden md:flex md:w-1/3 bg-slate-900 p-12 flex-col justify-between relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
               
               <div className="relative z-10">

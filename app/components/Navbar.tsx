@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import { BRAND, modernEase } from '../lib/constants';
 import { CarePlusLogo, Button } from './UIElements';
 import { useAppointment } from '../lib/AppointmentContext';
+import Image from 'next/image';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,36 +50,32 @@ export const Navbar = () => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${isScrolled ? 'py-3' : 'py-6'}`}
       >
-        <div className="main-container">
+        <div className="max-w-7xl mx-auto">
           <div className={`
             relative flex items-center justify-between transition-all duration-500 rounded-[2rem]
-            ${isScrolled 
-              ? 'bg-white/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white px-8 py-3' 
+            ${isScrolled
+              ? 'bg-white/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white px-4 py-2'
               : 'px-4 py-2 bg-transparent'
             }
           `}>
-            
+
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-4 group">
               <div className="relative">
-                <CarePlusLogo className={`w-10 h-10 transition-transform duration-500 group-hover:scale-110 ${useLightText ? 'filter brightness-0 invert' : ''}`} />
-                <motion.div 
-                  layoutId="logo-glow"
-                  className="absolute inset-0 bg-teal-400/20 blur-xl rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity" 
-                />
+                <Image src={"/logo.png"} alt="Care Plus" width={80} height={80} className={`w-20  transition-transform duration-500 group-hover:scale-110 ${useLightText ? 'filter brightness-0 invert' : ''}`} />
               </div>
               <div className="flex flex-col">
                 <span className={`text-xl font-bold tracking-tight leading-none transition-colors duration-500 ${useLightText ? 'text-white' : 'text-slate-900'}`} style={{ fontFamily: 'var(--font-outfit)' }}>
                   Care Plus
                 </span>
-                <span className={`text-[10px] uppercase tracking-[0.25em] font-bold mt-1.5 transition-colors duration-500 ${useLightText ? 'text-teal-400' : 'text-[#0F5B5D]'}`}>
+                <span className={`text-[10px] uppercase tracking-[0.25em] font-bold mt-1.5 transition-colors duration-500 ${useLightText ? 'text-teal-400' : 'text-brand-teal'}`}>
                   Raipur
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <div 
+            <div
               className={`
                 hidden lg:flex items-center gap-1 p-1.5 rounded-full transition-all duration-500
                 ${isScrolled ? 'bg-slate-100 border border-slate-200' : 'bg-white/10 backdrop-blur-md border border-white/20'}
@@ -90,7 +87,7 @@ export const Navbar = () => {
                 const isHovered = hoveredPath === link.href;
                 // A link should have white text ONLY if it currently possesses the animated pill
                 const hasPill = isHovered || (isLinkActive && !hoveredPath);
-                
+
                 return (
                   <Link
                     key={link.href}
@@ -99,17 +96,17 @@ export const Navbar = () => {
                     className={`
                       relative px-6 py-2.5 rounded-full text-[13px] font-bold tracking-wide transition-all duration-300
                       ${hasPill
-                        ? 'text-white' 
+                        ? 'text-white'
                         : useLightText ? 'text-white hover:text-teal-300' : 'text-slate-600 hover:text-slate-900'
                       }
                     `}
                   >
                     {hasPill && (
-                      <motion.div 
-                        layoutId="nav-pill-premium" 
-                        className="absolute inset-0 rounded-full shadow-lg z-0" 
-                        style={{ backgroundColor: BRAND.teal }} 
-                        transition={{ type: "spring", stiffness: 400, damping: 30 }} 
+                      <motion.div
+                        layoutId="nav-pill-premium"
+                        className="absolute inset-0 rounded-full shadow-lg z-0"
+                        style={{ backgroundColor: BRAND.teal }}
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
                     <span className="relative z-10">{link.label}</span>
@@ -122,13 +119,13 @@ export const Navbar = () => {
             <div className="hidden lg:flex items-center gap-6">
               <div className="flex flex-col items-end">
                 <span className={`text-[9px] font-black uppercase tracking-[0.2em] transition-colors duration-500 ${useLightText ? 'text-white/40' : 'text-slate-400'}`}>
-                  24/7 Support
+                  9 AM - 8 PM Support
                 </span>
-                <a href="tel:7701010703" className={`text-sm font-black transition-colors duration-500 ${useLightText ? 'text-white' : 'text-[#0F5B5D]'}`}>
+                <a href="tel:7701010703" className={`text-sm font-black transition-colors duration-500 ${useLightText ? 'text-white' : 'text-brand-teal'}`}>
                   +91 77010 10703
                 </a>
               </div>
-              <Button 
+              <Button
                 onClick={() => openModal()}
                 className={`
                   h-12 px-7 rounded-xl text-sm font-bold shadow-xl transition-all duration-300
@@ -140,8 +137,8 @@ export const Navbar = () => {
             </div>
 
             {/* Mobile Toggle */}
-            <button 
-              className={`lg:hidden p-3 rounded-2xl transition-all duration-300 ${useLightText ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-slate-100 text-slate-900 hover:bg-slate-200'}`} 
+            <button
+              className={`lg:hidden p-3 rounded-2xl transition-all duration-300 ${useLightText ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-slate-100 text-slate-900 hover:bg-slate-200'}`}
               onClick={() => setIsMobileMenuOpen(true)}
             >
               <Menu className="w-6 h-6" />
@@ -184,7 +181,7 @@ export const Navbar = () => {
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`
                         group flex items-center justify-between p-6 rounded-3xl transition-all duration-300
-                        ${isActive(link.href) ? 'bg-[#0F5B5D] text-white shadow-xl' : 'hover:bg-slate-50 text-slate-900'}
+                        ${isActive(link.href) ? 'bg-brand-teal text-white shadow-xl' : 'hover:bg-slate-50 text-slate-900'}
                       `}
                     >
                       <span className="text-2xl font-bold tracking-tight">{link.label}</span>
@@ -196,7 +193,7 @@ export const Navbar = () => {
             </div>
 
             <div className="p-8 bg-slate-50 border-t border-slate-100">
-              <Button 
+              <Button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   openModal();
@@ -207,10 +204,10 @@ export const Navbar = () => {
               </Button>
               <div className="flex items-center justify-between px-2">
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Emergency 24/7</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Clinic Hours 9AM - 8PM</span>
                   <span className="text-xl font-black text-slate-900">+91 77010 10703</span>
                 </div>
-                <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-[#0F5B5D]">
+                <div className="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center text-brand-teal">
                   <Phone className="w-6 h-6" />
                 </div>
               </div>

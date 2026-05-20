@@ -1,5 +1,5 @@
 export const BRAND = {
-  teal: '#0F5B5D',
+  teal: 'var(--color-brand-teal)',
   red: '#D81120',
   tealLight: '#E6F0F0',
   redLight: '#FBE7E8',
@@ -46,7 +46,7 @@ export const HERO_SLIDES = [
     title: 'Advanced Care.',
     highlight: 'Modern Medicine.',
     description: 'Combining world-class orthopedic expertise with advanced pathology diagnostics to accelerate your healing journey.',
-    video: 'https://cdn.pixabay.com/video/2020/09/13/49809-458438857_large.mp4',
+    video: '/videos/bgortho.mp4',
     poster: 'https://cdn.pixabay.com/video/2020/09/13/49809-458438857_large.jpg'
   },
   {
@@ -60,8 +60,8 @@ export const HERO_SLIDES = [
   {
     id: 3,
     title: 'Emergency Support.',
-    highlight: '24/7 Availability.',
-    description: 'Immediate medical attention for trauma and critical cases, available round the clock in Raipur.',
+    highlight: 'Comprehensive Care.',
+    description: 'Immediate medical attention for trauma and critical cases, available during clinic hours in Raipur.',
     video: 'https://cdn.pixabay.com/video/2019/09/30/27385-363513429_large.mp4',
     poster: 'https://cdn.pixabay.com/video/2019/09/30/27385-363513429_large.jpg'
   }

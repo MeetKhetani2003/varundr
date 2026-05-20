@@ -31,11 +31,11 @@ export default function DoctorJourneyPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Profile Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" alt="Doctor Hero Bg" className="w-full h-full object-cover" />
-           <div className="absolute inset-0 bg-slate-950/70" />
-           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+           <div className="absolute inset-0 bg-slate-900/30" />
+           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         
         <div className="main-container relative z-10">
@@ -56,7 +56,7 @@ export default function DoctorJourneyPage() {
                 {/* Floating Experience Badge */}
                 <div className="absolute -bottom-8 -right-8 bg-white p-8 rounded-[2.5rem] shadow-2xl z-20">
                   <div className="text-4xl font-bold text-teal-600 mb-1">15+</div>
-                  <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Years of Excellence</div>
+                  <div className="text-xs font-bold text-slate-300 uppercase tracking-widest">Years of Excellence</div>
                 </div>
               </motion.div>
             </div>
@@ -68,7 +68,7 @@ export default function DoctorJourneyPage() {
                   {doctor.name}
                 </motion.h1>
                 <motion.div variants={fadeUpVariant} className="text-2xl text-teal-400 font-bold mb-8">{doctor.qualifications}</motion.div>
-                <motion.p variants={fadeUpVariant} className="text-xl text-slate-400 leading-relaxed mb-10 max-w-2xl">
+                <motion.p variants={fadeUpVariant} className="text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl">
                   {doctor.bio}
                 </motion.p>
                 
@@ -130,7 +130,7 @@ export default function DoctorJourneyPage() {
       </section>
 
       {/* 3. Expertise & Achievements */}
-      <section className="section-padding bg-slate-950 text-white">
+      <section className="section-padding bg-slate-900 text-white">
         <div className="main-container">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>

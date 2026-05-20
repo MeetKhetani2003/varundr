@@ -42,11 +42,11 @@ export default function ServiceDetailPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Hero Header */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src={service.image} alt={service.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         
         <div className="main-container relative z-10">
@@ -62,7 +62,7 @@ export default function ServiceDetailPage() {
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: 'var(--font-outfit)' }}>
                 {service.title}
               </h1>
-              <p className="text-2xl text-slate-400 font-medium mb-10 leading-relaxed">
+              <p className="text-2xl text-slate-300 font-medium mb-10 leading-relaxed">
                 {service.subtitle}
               </p>
               <div className="flex flex-wrap gap-4">
@@ -99,7 +99,7 @@ export default function ServiceDetailPage() {
                   ))}
                 </div>
 
-                <div className="bg-[#E6F0F0] rounded-[3rem] p-10 border border-[#0F5B5D]/10">
+                <div className="bg-[#E6F0F0] rounded-[3rem] p-10 border border-brand-teal/10">
                   <h3 className="text-2xl font-bold text-slate-900 mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>Frequently Asked Questions</h3>
                   <div className="space-y-6">
                     {service.faqs.map((faq: any, i: number) => (
@@ -120,7 +120,7 @@ export default function ServiceDetailPage() {
                   <img src={service.image} alt="Service Detail" className="w-full h-full object-cover" />
                 </div>
                 
-                <div className="bg-slate-950 text-white p-10 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+                <div className="bg-slate-900 text-white p-10 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
                   <h3 className="text-2xl font-bold mb-6">Service Benefits</h3>
                   <ul className="space-y-4">
@@ -143,7 +143,7 @@ export default function ServiceDetailPage() {
                       <MessageCircle className="w-6 h-6" />
                     </div>
                     <div>
-                      <div className="text-sm text-slate-400">Need immediate help?</div>
+                      <div className="text-sm text-slate-300">Need immediate help?</div>
                       <div className="font-bold">+91 77010-10703</div>
                     </div>
                   </div>

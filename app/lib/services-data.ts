@@ -38,20 +38,20 @@ export const SERVICES_DATA: Record<string, any> = {
     ]
   },
   'trauma-care': {
-    title: '24/7 Emergency Trauma Care',
+    title: 'Emergency Trauma Care',
     subtitle: 'Immediate Response for Critical Injuries',
     icon: Activity,
     image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1200',
-    description: 'Accidents don\'t wait, and neither do we. Our trauma center is operational 24/7 with specialized orthopedic surgeons on call to handle high-velocity injuries and fractures.',
+    description: 'Accidents don\'t wait, and neither do we. Our trauma center is operational from 9 AM to 8 PM with specialized orthopedic surgeons on call to handle high-velocity injuries and fractures.',
     features: [
-      '24/7 Emergency Response',
+      'Prompt Emergency Response',
       'Specialized Trauma Theater',
       'Immediate Fracture Stabilization',
       'Post-Trauma Reconstruction',
       'ICU Support'
     ],
     faqs: [
-      { q: "Is a surgeon always available?", a: "Yes, our orthopedic trauma specialists are available round the clock." }
+      { q: "Is a surgeon always available?", a: "Yes, our orthopedic trauma specialists are available during clinic hours." }
     ]
   },
   'digital-xray': {
@@ -89,13 +89,13 @@ export const SERVICES_DATA: Record<string, any> = {
     ]
   },
   'in-house-pharmacy': {
-    title: '24/7 In-house Pharmacy',
+    title: 'In-house Pharmacy',
     subtitle: 'Quality Medications, Always Available',
     icon: Building,
     image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=1200',
-    description: 'Our 24/7 pharmacy ensures that you have immediate access to prescribed medications without leaving the facility. We maintain strict quality control and storage standards.',
+    description: 'Our in-house pharmacy ensures that you have immediate access to prescribed medications without leaving the facility. We maintain strict quality control and storage standards.',
     features: [
-      '24/7 Availability',
+      'Available 9 AM to 8 PM',
       'Wide Range of Orthopedic Meds',
       'Expert Pharmacist Guidance',
       'Strict Quality Control',

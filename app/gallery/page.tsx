@@ -21,11 +21,11 @@ export default function GalleryPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Header */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src={GALLERY_IMAGES[1]} alt="Gallery Bg" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -38,19 +38,19 @@ export default function GalleryPage() {
             <div className="flex flex-wrap justify-center gap-4 mt-12">
               <button 
                 onClick={() => setActiveTab('all')}
-                className={`px-8 py-4 rounded-2xl font-bold transition-all flex items-center gap-2 ${activeTab === 'all' ? 'bg-[#0F5B5D] text-white shadow-xl shadow-teal-900/20' : 'bg-white/5 text-slate-400 hover:bg-white/10'}`}
+                className={`px-8 py-4 rounded-2xl font-bold transition-all flex items-center gap-2 ${activeTab === 'all' ? 'bg-brand-teal text-white shadow-xl shadow-teal-900/20' : 'bg-white/5 text-slate-300 hover:bg-white/10'}`}
               >
                 All Media
               </button>
               <button 
                 onClick={() => setActiveTab('photos')}
-                className={`px-8 py-4 rounded-2xl font-bold transition-all flex items-center gap-2 ${activeTab === 'photos' ? 'bg-[#0F5B5D] text-white shadow-xl shadow-teal-900/20' : 'bg-white/5 text-slate-400 hover:bg-white/10'}`}
+                className={`px-8 py-4 rounded-2xl font-bold transition-all flex items-center gap-2 ${activeTab === 'photos' ? 'bg-brand-teal text-white shadow-xl shadow-teal-900/20' : 'bg-white/5 text-slate-300 hover:bg-white/10'}`}
               >
                 <ImageIcon className="w-5 h-5" /> Photos
               </button>
               <button 
                 onClick={() => setActiveTab('videos')}
-                className={`px-8 py-4 rounded-2xl font-bold transition-all flex items-center gap-2 ${activeTab === 'videos' ? 'bg-[#0F5B5D] text-white shadow-xl shadow-teal-900/20' : 'bg-white/5 text-slate-400 hover:bg-white/10'}`}
+                className={`px-8 py-4 rounded-2xl font-bold transition-all flex items-center gap-2 ${activeTab === 'videos' ? 'bg-brand-teal text-white shadow-xl shadow-teal-900/20' : 'bg-white/5 text-slate-300 hover:bg-white/10'}`}
               >
                 <Play className="w-5 h-5" /> Videos
               </button>
@@ -76,7 +76,7 @@ export default function GalleryPage() {
                   {activeTab === 'all' && (
                     <div className="flex items-center gap-4 mb-12">
                       <div className="h-px flex-1 bg-slate-200" />
-                      <span className="text-sm font-black text-slate-400 uppercase tracking-[0.4em]">Cinematic Photography</span>
+                      <span className="text-sm font-black text-slate-300 uppercase tracking-[0.4em]">Cinematic Photography</span>
                       <div className="h-px flex-1 bg-slate-200" />
                     </div>
                   )}
@@ -91,7 +91,7 @@ export default function GalleryPage() {
                         className="break-inside-avoid relative group rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all"
                       >
                         <img src={img} alt={`Gallery ${idx}`} className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110" onError={handleImageFallback} />
-                        <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                           <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
                             <Maximize2 className="w-8 h-8" />
                           </div>
@@ -108,7 +108,7 @@ export default function GalleryPage() {
                   {activeTab === 'all' && (
                     <div className="flex items-center gap-4 mb-12 mt-32">
                       <div className="h-px flex-1 bg-slate-200" />
-                      <span className="text-sm font-black text-slate-400 uppercase tracking-[0.4em]">Clinical Case Studies & Tours</span>
+                      <span className="text-sm font-black text-slate-300 uppercase tracking-[0.4em]">Clinical Case Studies & Tours</span>
                       <div className="h-px flex-1 bg-slate-200" />
                     </div>
                   )}
@@ -141,13 +141,13 @@ export default function GalleryPage() {
       </section>
 
       {/* 3. CTA */}
-      <section className="section-padding bg-slate-950 text-white">
+      <section className="section-padding bg-slate-900 text-white">
         <div className="main-container text-center">
           <div className="bg-white/5 backdrop-blur-xl rounded-[4rem] p-16 md:p-24 relative overflow-hidden text-white border border-white/10">
              <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
              <h2 className="text-4xl md:text-6xl font-bold mb-8 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Experience it in person.</h2>
              <p className="text-teal-50/70 text-xl mb-12 max-w-2xl mx-auto relative z-10">Schedule a facility tour or consult with our experts today.</p>
-             <Button onClick={() => openModal()} variant="secondary" className="bg-white text-[#0F5B5D] hover:bg-teal-50 h-16 px-12 rounded-2xl text-xl font-bold shadow-2xl border-0 relative z-10">
+             <Button onClick={() => openModal()} variant="secondary" className="bg-white text-brand-teal hover:bg-teal-50 h-16 px-12 rounded-2xl text-xl font-bold shadow-2xl border-0 relative z-10">
                Visit Our Clinic
              </Button>
           </div>

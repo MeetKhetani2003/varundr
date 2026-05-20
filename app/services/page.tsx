@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Bone, Microscope, Activity, Stethoscope, Syringe, ClipboardList, Building, ArrowRight, ChevronRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { BRAND, modernEase, fadeUpVariant, staggerContainer } from '../lib/constants';
 import { Button, SectionHeading } from '../components/UIElements';
 import { useAppointment } from '../lib/AppointmentContext';
@@ -27,7 +28,7 @@ const services = [
     id: 'trauma-care', 
     title: 'Trauma Care', 
     icon: Activity, 
-    desc: '24/7 emergency response for high-velocity injuries and complex fractures.',
+    desc: 'Prompt emergency response for high-velocity injuries and complex fractures.',
     image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=800'
   },
   { 
@@ -46,7 +47,7 @@ const services = [
   },
   { 
     id: 'in-house-pharmacy', 
-    title: '24/7 Pharmacy', 
+    title: 'In-house Pharmacy', 
     icon: Building, 
     desc: 'On-site pharmacy providing immediate access to all essential medications.',
     image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=800'
@@ -55,14 +56,15 @@ const services = [
 
 export default function ServicesPage() {
   const { openModal } = useAppointment();
+  const router = useRouter();
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Header Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200" alt="Services Bg" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-slate-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -70,7 +72,7 @@ export default function ServicesPage() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
               Our Medical <span className="font-bold" style={{ color: BRAND.teal }}>Services</span>
             </h1>
-            <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               From advanced orthopedic surgeries to precision diagnostics, we provide a complete spectrum of healthcare services under one roof.
             </p>
           </motion.div>
@@ -84,6 +86,7 @@ export default function ServicesPage() {
             {services.map((svc, idx) => (
               <motion.div
                 key={svc.id}
+                onClick={() => router.push(`/services/${svc.id}`)}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -91,11 +94,11 @@ export default function ServicesPage() {
                   hidden: { opacity: 0, y: 30 },
                   visible: { opacity: 1, y: 0, transition: { delay: idx * 0.1, duration: 0.8, ease: modernEase } }
                 }}
-                className="group relative h-[500px] rounded-[3.5rem] overflow-hidden border border-slate-100 bg-white shadow-sm hover:shadow-2xl transition-all"
+                className="group relative h-[500px] rounded-[3.5rem] overflow-hidden border border-slate-100 bg-white shadow-sm hover:shadow-2xl transition-all cursor-pointer"
               >
                 <div className="absolute inset-0 z-0">
                   <img src={svc.image} alt={svc.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
                 </div>
 
                 <div className="relative z-10 h-full flex flex-col justify-end p-10">
@@ -108,7 +111,8 @@ export default function ServicesPage() {
                   </p>
                   <div className="flex flex-col gap-4 mt-auto">
                     <button 
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         const serviceMap: Record<string, string> = {
                           'orthopedic-care': 'Orthopedic Consultation',
                           'pathology-lab': 'Pathology / Blood Test',
@@ -123,7 +127,7 @@ export default function ServicesPage() {
                     >
                       Book This Service <Activity className="w-5 h-5" />
                     </button>
-                    <Link href={`/services/${svc.id}`} className="inline-flex items-center justify-center gap-2 text-white/70 font-bold text-sm hover:text-white transition-all">
+                    <Link href={`/services/${svc.id}`} onClick={(e) => e.stopPropagation()} className="inline-flex items-center justify-center gap-2 text-white/70 font-bold text-sm hover:text-white transition-all">
                       Learn Detailed Info <ChevronRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -135,7 +139,7 @@ export default function ServicesPage() {
       </section>
 
       {/* 3. Features Section */}
-      <section className="section-padding bg-slate-950 text-white">
+      <section className="section-padding bg-slate-900 text-white">
         <div className="main-container">
           <div className="bg-white/5 backdrop-blur-md rounded-[3rem] md:rounded-[4rem] p-6 sm:p-10 md:p-20 shadow-xl border border-white/10 grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="text-center lg:text-left">
@@ -159,7 +163,7 @@ export default function ServicesPage() {
             </div>
             <div className="relative mt-8 lg:mt-0">
                <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800" alt="Excellence" className="w-full h-[300px] md:h-[500px] object-cover rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl" />
-               <div className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 bg-[#0F5B5D] text-white p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl">
+               <div className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 bg-brand-teal text-white p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl">
                  <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">100%</div>
                  <div className="text-[10px] md:text-sm font-bold uppercase tracking-widest opacity-70 leading-tight">Accuracy<br className="md:hidden" /> Guarantee</div>
                </div>
@@ -171,7 +175,7 @@ export default function ServicesPage() {
       {/* 4. Bottom CTA */}
       <section className="section-padding">
         <div className="main-container text-center">
-          <div className="bg-slate-950 rounded-[4rem] p-16 md:p-24 relative overflow-hidden">
+          <div className="bg-slate-900 rounded-[4rem] p-16 md:p-24 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-10 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready for a <br />consultation?</h2>
             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">

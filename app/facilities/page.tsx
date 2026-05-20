@@ -19,11 +19,11 @@ export default function FacilitiesPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Cinematic Hero */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src={GALLERY_IMAGES[0]} alt="Facilities Bg" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -31,7 +31,7 @@ export default function FacilitiesPage() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
               Premium <span className="font-bold" style={{ color: BRAND.teal }}>Facilities</span>
             </h1>
-            <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               We have invested in state-of-the-art medical infrastructure to ensure that every patient receives treatment in a safe, comfortable, and highly professional environment.
             </p>
           </motion.div>
@@ -57,7 +57,7 @@ export default function FacilitiesPage() {
                   className={`relative rounded-[3rem] overflow-hidden group cursor-pointer border border-slate-100 shadow-xl ${gridClass}`}
                 >
                   <img src={facility.image} alt={facility.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onError={handleImageFallback} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                   
                   <div className="absolute top-8 left-8">
                      <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20">

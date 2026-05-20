@@ -17,7 +17,7 @@ export const CarePlusLogo = ({ className = "w-12 h-12" }: { className?: string }
 );
 
 export const Button = ({ children, variant = 'primary', className = '', onClick, type = 'button' }: any) => {
-  const baseStyle = "relative overflow-hidden rounded-full font-semibold px-8 py-4 transition-all duration-300 flex items-center justify-center gap-2 group active:scale-95";
+  const baseStyle = "relative overflow-hidden rounded-full font-semibold px-8 py-4 transition-all duration-300 inline-flex items-center justify-center gap-2 group active:scale-95";
   const variants: Record<string, string> = {
     primary: `bg-[${BRAND.teal}] text-white shadow-[0_8px_20px_rgba(15,91,93,0.2)] hover:shadow-[0_12px_25px_rgba(15,91,93,0.3)] hover:-translate-y-0.5 border border-transparent`,
     secondary: "bg-white text-slate-900 border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-md",

@@ -25,11 +25,11 @@ export default function AppointmentPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* 1. Header Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-950">
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200" alt="Appointment Bg" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-950/70" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -37,7 +37,7 @@ export default function AppointmentPage() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
               Schedule Your <span className="font-bold" style={{ color: BRAND.teal }}>Consultation</span>
             </h1>
-            <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Skip the queue by booking your appointment in advance. Our specialists ensure personalized attention for every patient.
             </p>
           </motion.div>
@@ -54,7 +54,7 @@ export default function AppointmentPage() {
             {[
               { icon: Clock, title: "Zero Wait Time", desc: "For pre-booked slots" },
               { icon: MapPin, title: "Central Location", desc: "Easily accessible in Raipur" },
-              { icon: Phone, title: "24/7 Support", desc: "Dedicated patient helpdesk" }
+              { icon: Phone, title: "Helpdesk", desc: "Dedicated patient support" }
             ].map((feature, i) => (
               <div key={i} className="flex flex-col items-center text-center p-10 bg-white/50 backdrop-blur-md rounded-[3rem] border border-white/20">
                 <div className="w-16 h-16 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-6 shadow-xl shadow-teal-600/20">
