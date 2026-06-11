@@ -40,32 +40,53 @@ export const handleImageFallback = (e: React.SyntheticEvent<HTMLImageElement, Ev
   e.currentTarget.src = 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800';
 };
 
-export const HERO_SLIDES = [
-  {
-    id: 1,
-    title: 'Advanced Care.',
-    highlight: 'Modern Medicine.',
-    description: 'Combining world-class orthopedic expertise with advanced pathology diagnostics to accelerate your healing journey.',
-    video: '/videos/bgortho.mp4',
-    poster: 'https://cdn.pixabay.com/video/2020/09/13/49809-458438857_large.jpg'
-  },
-  {
-    id: 2,
-    title: 'Precision Diagnostics.',
-    highlight: 'Accurate Results.',
-    description: 'Our advanced pathology lab ensures 100% accuracy and rapid results to guide your treatment effectively.',
-    video: 'https://cdn.pixabay.com/video/2025/03/03/262188_large.mp4',
-    poster: 'https://cdn.pixabay.com/video/2025/03/03/262188_large.jpg'
-  },
-  {
-    id: 3,
-    title: 'Emergency Support.',
-    highlight: 'Comprehensive Care.',
-    description: 'Immediate medical attention for trauma and critical cases, available during clinic hours in Raipur.',
-    video: 'https://cdn.pixabay.com/video/2019/09/30/27385-363513429_large.mp4',
-    poster: 'https://cdn.pixabay.com/video/2019/09/30/27385-363513429_large.jpg'
-  }
-];
+export const HERO_SLIDES: Array<{
+  id: number;
+  title: string;
+  highlight: string;
+  description: string;
+  image?: string;
+  video?: string;
+  poster?: string;
+}> = [
+    // {
+    //   id: 1,
+    //   title: 'Care Plus Healthcentre.',
+    //   highlight: 'Modern Healthcare.',
+    //   description: 'Raipur\'s leading medical clinic combining advanced orthopedic consultation and high-precision pathology laboratory services.',
+    //   image: '/images/healthcare.jpeg'
+    // },
+    {
+      id: 1,
+      title: 'Restoring Mobility.',
+      highlight: 'Knee & Joint Surgery.',
+      description: 'State-of-the-art orthopedic procedures and custom rehabilitation protocols for active recovery.',
+      video: '/videos/bgortho.mp4',
+      poster: '/images/ortho.jpeg'
+    },
+    {
+      id: 2,
+      title: 'Expert Orthopedics.',
+      highlight: 'Dr. Varun Goel.',
+      description: 'Consultation with Dr. Varun Goel (MS Orthopedic), specialist in joint replacements, complex fractures, and sports trauma.',
+      image: '/images/ortho.jpeg'
+    },
+    {
+      id: 3,
+      title: 'Accurate Reports.',
+      highlight: 'Automated Pathology.',
+      description: 'High-tech biochem analyzers ensuring zero manual error and quick report delivery for routine & custom health panels.',
+      video: '/videos/pathology.mp4',
+      poster: '/images/patho.jpeg'
+    },
+    {
+      id: 4,
+      title: 'Precision Diagnostics.',
+      highlight: 'Dr. Neha Goel.',
+      description: 'NABL-aligned pathology lab under the leadership of Dr. Neha Goel (MD Pathology) for accurate clinical reporting.',
+      image: '/images/patho.jpeg'
+    },
+  ];
 
 export const modernEase = [0.22, 1, 0.36, 1] as const;
 

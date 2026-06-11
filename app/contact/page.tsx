@@ -39,26 +39,40 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Phone, title: "Emergency & OP", info1: "+91 77010-10703", info2: "+91 77010-10704", color: "bg-teal-50 text-teal-600" },
-              { icon: MapPin, title: "Our Location", info1: "Amaseoni, Vidhan Sabha Road", info2: "Next to Swarnbhoomi Colony, Raipur", color: "bg-red-50 text-red-600" },
-              { icon: Mail, title: "Email Support", info1: "raipurcareplus@gmail.com", info2: "info@careplusraipur.com", color: "bg-blue-50 text-blue-600" },
-              { icon: Clock, title: "Clinic Hours", info1: "Monday - Sunday", info2: "9:00 AM - 8:00 PM", color: "bg-yellow-50 text-yellow-600" }
-            ].map((card, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-[2.5rem] bg-slate-50 border border-slate-100 group hover:bg-white hover:shadow-2xl hover:border-white transition-all text-center"
-              >
-                <div className={`w-14 h-14 rounded-2xl ${card.color} flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform mx-auto`}>
-                  <card.icon className="w-7 h-7" />
+              { icon: MapPin, title: "Our Location", info1: "Amaseoni, Vidhan Sabha Road", info2: "Next to Swarnbhoomi Colony, Raipur", color: "bg-red-50 text-red-600", href: "https://share.google/Yyl6oPd2XqbLlKgkD" },
+              { icon: Clock, title: "Clinic & Lab Hours", info1: "Monday - Sunday", info2: "9:00 AM - 8:00 PM", color: "bg-yellow-50 text-yellow-600" },
+              { icon: Clock, title: "Ortho Consultation", info1: "Monday - Sunday", info2: "1:00 PM - 8:00 PM", color: "bg-purple-50 text-purple-600" }
+            ].map((card, i) => {
+              const CardContent = (
+                <div className="p-8 rounded-[2.5rem] bg-slate-50 border border-slate-100 group hover:bg-white hover:shadow-2xl hover:border-white transition-all text-center h-full flex flex-col justify-center cursor-default">
+                  <div className={`w-14 h-14 rounded-2xl ${card.color} flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform mx-auto`}>
+                    <card.icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
+                  <p className="text-base text-slate-600 font-medium">{card.info1}</p>
+                  <p className="text-base text-slate-600 font-medium">{card.info2}</p>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{card.title}</h3>
-                <p className="text-base text-slate-600 font-medium">{card.info1}</p>
-                <p className="text-base text-slate-600 font-medium">{card.info2}</p>
-              </motion.div>
-            ))}
+              );
+
+              return (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="h-full"
+                >
+                  {card.href ? (
+                    <a href={card.href} target="_blank" rel="noopener noreferrer" className="block cursor-pointer h-full">
+                      {CardContent}
+                    </a>
+                  ) : (
+                    CardContent
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -71,13 +85,22 @@ export default function ContactPage() {
             <div className="lg:col-span-5 space-y-8">
               <div className="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 h-full flex flex-col">
                 <SectionHeading subtitle="Visit Us" title="Find Our Clinic" />
-                <p className="text-slate-600 mb-8">
-                  Located in the heart of Raipur, our facility is easily accessible with ample parking and modern amenities.
+                <p className="text-slate-600 mb-6">
+                  Located near Swarnbhoomi Colony on Vidhan Sabha Road in Raipur. Click the button below to navigate directly on your phone.
                 </p>
+
+                <a 
+                  href="https://share.google/Yyl6oPd2XqbLlKgkD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mb-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-xl shadow-lg shadow-teal-600/10 text-sm transition-all"
+                >
+                  <MapPin className="w-4 h-4" /> Open in Google Maps / Navigate
+                </a>
                 
-                <div className="flex-1 rounded-3xl overflow-hidden shadow-inner border border-slate-100 min-h-[400px] relative">
+                <div className="flex-1 rounded-3xl overflow-hidden shadow-inner border border-slate-100 min-h-[350px] relative">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14874.102195263045!2d81.7063468!3d21.2506693!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c3664d50f55f%3A0xc3c9448f80456565!2sCare%20Plus%20Healthcentre!5e0!3m2!1sen!2sin!4v1715668000000!5m2!1sen!2sin" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.525548815!2d81.7063468!3d21.2506693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c3664d50f55f%3A0xc3c9448f80456565!2sCare%20Plus%20Healthcentre!5e0!3m2!1sen!2sin!4v1715668000000!5m2!1sen!2sin" 
                     className="absolute inset-0 w-full h-full border-0"
                     allowFullScreen={true} 
                     loading="lazy" 
@@ -117,27 +140,27 @@ export default function ContactPage() {
               { 
                 name: "Facebook", 
                 icon: (props: any) => <svg {...props} fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>,
-                color: "hover:bg-[#1877F2] hover:text-white"
+                color: "hover:bg-[#1877F2] hover:text-white",
+                href: "https://www.facebook.com/share/1CzitrHvtM/"
               },
               { 
                 name: "Instagram", 
                 icon: (props: any) => <svg {...props} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>,
-                color: "hover:bg-[#E4405F] hover:text-white"
-              },
-              { 
-                name: "YouTube", 
-                icon: (props: any) => <svg {...props} fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>,
-                color: "hover:bg-[#FF0000] hover:text-white"
+                color: "hover:bg-[#E4405F] hover:text-white",
+                href: "https://www.instagram.com/drvarungoelmsorthoraipur?igsh=MXJmdnVyaHFvNHBxMw%3D%3D&utm_source=ig_contact_invite"
               },
               { 
                 name: "WhatsApp", 
                 icon: MessageCircle,
-                color: "hover:bg-[#25D366] hover:text-white"
+                color: "hover:bg-[#25D366] hover:text-white",
+                href: "https://wa.me/917701010703"
               }
             ].map((social, i) => (
-              <Button key={i} variant="secondary" className={`rounded-2xl px-8 h-16 border-slate-200 text-slate-700 transition-all ${social.color}`}>
-                <social.icon className="w-6 h-6 mr-3" /> {social.name}
-              </Button>
+              <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="block">
+                <Button variant="secondary" className={`rounded-2xl px-8 h-16 border-slate-200 text-slate-700 transition-all ${social.color} cursor-pointer`}>
+                  <social.icon className="w-6 h-6 mr-3" /> {social.name}
+                </Button>
+              </a>
             ))}
           </div>
         </div>

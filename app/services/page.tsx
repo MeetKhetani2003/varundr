@@ -15,42 +15,42 @@ const services = [
     title: 'Orthopedic Care', 
     icon: Bone, 
     desc: 'Specialized trauma, joint replacement, and sports medicine led by Dr. Varun Goel.',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800'
+    image: '/serviceimages/ortho.jpeg'
   },
   { 
     id: 'pathology-lab', 
     title: 'Pathology Lab', 
     icon: Microscope, 
     desc: 'Advanced in-house diagnostics with NABL standards and rapid result turnaround.',
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800'
+    image: '/serviceimages/patho.jpeg'
   },
   { 
     id: 'trauma-care', 
     title: 'Trauma Care', 
     icon: Activity, 
     desc: 'Prompt emergency response for high-velocity injuries and complex fractures.',
-    image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=800'
+    image: '/serviceimages/traumacare.jpeg'
   },
   { 
     id: 'digital-xray', 
     title: 'Digital X-Ray', 
     icon: ClipboardList, 
     desc: 'High-resolution imaging with minimal radiation for accurate medical assessment.',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800'
+    image: '/serviceimages/digitalx-ray.jpeg'
   },
   { 
     id: 'joint-replacement', 
     title: 'Joint Replacement', 
     icon: Stethoscope, 
     desc: 'World-class knee and hip replacement procedures for a pain-free active life.',
-    image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=800'
+    image: '/serviceimages/radiology.jpeg'
   },
   { 
     id: 'in-house-pharmacy', 
     title: 'In-house Pharmacy', 
     icon: Building, 
     desc: 'On-site pharmacy providing immediate access to all essential medications.',
-    image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=800'
+    image: '/serviceimages/inhousepharmacy.jpeg'
   },
 ];
 

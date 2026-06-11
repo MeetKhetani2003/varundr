@@ -28,7 +28,7 @@ export default function AboutPage() {
               <span className="font-bold" style={{ color: BRAND.teal }}>Healing & Trust</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Founded on the principles of clinical excellence and compassionate care, Care Plus Healthcentre has been Raipur's benchmark for orthopedic and diagnostic precision since 2015.
+              Founded on the principles of clinical excellence and compassionate care, Care Plus Healthcentre has been Raipur's benchmark for orthopedic and diagnostic precision since its launch in March 2026.
             </p>
           </motion.div>
         </div>

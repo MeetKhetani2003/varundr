@@ -5,7 +5,7 @@ export const SERVICES_DATA: Record<string, any> = {
     title: 'Advanced Orthopedic Care',
     subtitle: 'Restoring Mobility, Relieving Pain',
     icon: Bone,
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200',
+    image: '/serviceimages/ortho.jpeg',
     description: 'Our orthopedic department is led by Dr. Varun Goel, specializing in complex trauma, joint replacements, and sports medicine. We use minimally invasive techniques to ensure faster recovery and less post-operative pain.',
     features: [
       'Joint Replacement (Knee, Hip, Shoulder)',
@@ -23,7 +23,7 @@ export const SERVICES_DATA: Record<string, any> = {
     title: 'Precision Pathology Lab',
     subtitle: 'Diagnostic Excellence You Can Trust',
     icon: Microscope,
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200',
+    image: '/serviceimages/patho.jpeg',
     description: 'Led by Dr. Neha Goel, our NABL-standard lab provides accurate and rapid results across histopathology, cytology, and hematology. We understand that accurate treatment starts with accurate diagnostics.',
     features: [
       'Advanced Histopathology',
@@ -41,7 +41,7 @@ export const SERVICES_DATA: Record<string, any> = {
     title: 'Emergency Trauma Care',
     subtitle: 'Immediate Response for Critical Injuries',
     icon: Activity,
-    image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1200',
+    image: '/serviceimages/traumacare.jpeg',
     description: 'Accidents don\'t wait, and neither do we. Our trauma center is operational from 9 AM to 8 PM with specialized orthopedic surgeons on call to handle high-velocity injuries and fractures.',
     features: [
       'Prompt Emergency Response',
@@ -58,7 +58,7 @@ export const SERVICES_DATA: Record<string, any> = {
     title: 'High-Resolution Digital X-Ray',
     subtitle: 'Crystal Clear Imaging for Accurate Diagnosis',
     icon: ClipboardList,
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200',
+    image: '/serviceimages/digitalx-ray.jpeg',
     description: 'Our digital X-ray facility provides high-resolution imaging with minimal radiation exposure. Instant digital processing allows our doctors to diagnose issues immediately.',
     features: [
       'High-Resolution Digital Imaging',
@@ -75,7 +75,7 @@ export const SERVICES_DATA: Record<string, any> = {
     title: 'Joint Replacement Center',
     subtitle: 'The Gold Standard in Arthroplasty',
     icon: Stethoscope,
-    image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=1200',
+    image: '/serviceimages/radiology.jpeg',
     description: 'We specialize in total knee and hip replacements using imported, high-durability implants and precise surgical techniques to ensure a pain-free life for our patients.',
     features: [
       'Total Knee Replacement (TKR)',
@@ -92,7 +92,7 @@ export const SERVICES_DATA: Record<string, any> = {
     title: 'In-house Pharmacy',
     subtitle: 'Quality Medications, Always Available',
     icon: Building,
-    image: 'https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=1200',
+    image: '/serviceimages/inhousepharmacy.jpeg',
     description: 'Our in-house pharmacy ensures that you have immediate access to prescribed medications without leaving the facility. We maintain strict quality control and storage standards.',
     features: [
       'Available 9 AM to 8 PM',

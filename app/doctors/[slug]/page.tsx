@@ -95,36 +95,29 @@ export default function DoctorJourneyPage() {
         </div>
       </section>
 
-      {/* 2. Professional Journey (Timeline) */}
-      <section className="section-padding bg-white">
+      {/* 2. Professional Background */}
+      <section className="section-padding bg-slate-50">
         <div className="main-container max-w-4xl">
-          <SectionHeading subtitle="Professional Evolution" title="The Journey of Excellence" centered />
+          <SectionHeading subtitle="Clinical Background" title="Professional Experience & Education" centered />
           
-          <div className="relative mt-20">
-            {/* Vertical Line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2 hidden md:block" />
-            
-            <div className="space-y-16">
-              {doctor.journey.map((item: any, i: number) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className={`flex flex-col md:flex-row gap-8 items-center ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
-                >
-                  <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-                    <div className="inline-block px-4 py-1 rounded-full bg-teal-600 text-white text-sm font-bold mb-4">{item.year}</div>
-                    <p className="text-xl text-slate-700 font-medium leading-relaxed">{item.event}</p>
-                  </div>
-                  
-                  {/* Timeline Node */}
-                  <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-teal-600 rounded-full border-4 border-white shadow-lg -translate-x-1/2 hidden md:block" />
-                  
-                  <div className="w-full md:w-1/2" />
-                </motion.div>
-              ))}
-            </div>
+          <div className="flex flex-col gap-6 mt-16">
+            {doctor.experience.map((exp: string, i: number) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="bg-white p-6 md:p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl hover:border-brand-teal/20 transition-all duration-300 flex flex-col sm:flex-row gap-6 items-start sm:items-center group"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                  <GraduationCap className="w-7 h-7" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-lg md:text-xl text-slate-800 font-bold leading-relaxed">{exp}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
