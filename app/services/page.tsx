@@ -21,8 +21,9 @@ const services = [
     id: 'pathology-lab', 
     title: 'Pathology Lab', 
     icon: Microscope, 
-    desc: 'Advanced in-house diagnostics with NABL standards and rapid result turnaround.',
-    image: '/serviceimages/patho.jpeg'
+    desc: 'High-precision diagnostics, histopathology, and routine blood analysis.', 
+    image: '/images/dept_pathology.png',
+    customHref: '/pathology'
   },
   { 
     id: 'trauma-care', 
@@ -86,7 +87,7 @@ export default function ServicesPage() {
             {services.map((svc, idx) => (
               <motion.div
                 key={svc.id}
-                onClick={() => router.push(`/services/${svc.id}`)}
+                onClick={() => router.push(svc.customHref || `/services/${svc.id}`)}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -127,7 +128,7 @@ export default function ServicesPage() {
                     >
                       Book This Service <Activity className="w-5 h-5" />
                     </button>
-                    <Link href={`/services/${svc.id}`} onClick={(e) => e.stopPropagation()} className="inline-flex items-center justify-center gap-2 text-white/70 font-bold text-sm hover:text-white transition-all">
+                    <Link href={svc.customHref || `/services/${svc.id}`} onClick={(e) => e.stopPropagation()} className="inline-flex items-center justify-center gap-2 text-white/70 font-bold text-sm hover:text-white transition-all">
                       Learn Detailed Info <ChevronRight className="w-4 h-4" />
                     </Link>
                   </div>

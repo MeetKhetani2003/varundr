@@ -12,7 +12,7 @@ export const DOCTORS = [
     name: 'Dr. Varun Goel',
     qualifications: 'MS Orthopedic',
     specialization: 'Fellow in Arthroscopy and Sports Medicine\nSpecialization in Trauma & Joint Replacement\nEx Registrar PGI Rohtak',
-    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=800',
+    image: '/doctors/drvarun.png',
     tags: ['Orthopedics', 'Joint Replacement', 'Sports Medicine', 'Trauma'],
     bio: 'Dr. Varun Goel brings years of specialized experience in complex orthopedic procedures, focusing on restoring mobility and eliminating pain through minimally invasive techniques.'
   },
@@ -21,7 +21,7 @@ export const DOCTORS = [
     name: 'Dr. Neha Goel',
     qualifications: 'MD Pathology',
     specialization: 'Specialist in Histopathology, Cytology and Hematology',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800',
+    image: 'https://max-website20-images.s3.ap-south-1.amazonaws.com/Dr_Neha_Gupta_eedf7c787b.png',
     tags: ['Pathology', 'Histopathology', 'Cytology', 'Hematology'],
     bio: 'Dr. Neha Goel leads our advanced diagnostic division, ensuring accurate, rapid, and comprehensive pathological analysis to guide effective treatment plans.'
   }

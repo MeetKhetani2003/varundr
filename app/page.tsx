@@ -305,7 +305,7 @@ export default function HomePage() {
               className="relative"
             >
               <div className="aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl relative z-10">
-                <img src="/images/healthcarevert.jpeg" alt="Clinic Trust" className="w-full h-full object-cover" />
+                <img src="/images/healthcare.png" alt="Clinic Trust" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-teal-950/40 to-transparent" />
               </div>
 
