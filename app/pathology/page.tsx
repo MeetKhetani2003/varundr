@@ -244,8 +244,8 @@ export default function PathologyPage() {
                               checked={selectedTests.has(test.id)}
                               onChange={() => handleTestToggle(test.id)}
                             />
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2 mb-1">
+                            <div className="flex-1 flex justify-between items-center">
+                              <div className="flex items-center gap-2">
                                 <div 
                                   className="w-2.5 h-2.5 rounded-full shadow-sm flex-shrink-0" 
                                   style={{ backgroundColor: getTubeColorHex(test.tubeColor) }}
@@ -253,6 +253,7 @@ export default function PathologyPage() {
                                 />
                                 <span className="font-bold text-slate-800 leading-tight">{test.name}</span>
                               </div>
+                              <span className="font-bold text-teal-600 ml-2">₹{test.rate}</span>
                             </div>
                           </label>
                         ))}
