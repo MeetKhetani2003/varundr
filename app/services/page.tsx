@@ -163,7 +163,7 @@ export default function ServicesPage() {
               </div>
             </div>
             <div className="relative mt-8 lg:mt-0">
-               <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800" alt="Excellence" className="w-full h-[300px] md:h-[500px] object-cover rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl" />
+               <img src="/images/healthcare.png" alt="Excellence" className="w-full h-[300px] md:h-[500px] object-cover rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl" />
                <div className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 bg-brand-teal text-white p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl">
                  <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">100%</div>
                  <div className="text-[10px] md:text-sm font-bold uppercase tracking-widest opacity-70 leading-tight">Accuracy<br className="md:hidden" /> Guarantee</div>

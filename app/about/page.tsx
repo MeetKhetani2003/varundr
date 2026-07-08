@@ -48,7 +48,7 @@ export default function AboutPage() {
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900 mb-3">Our Mission</h3>
                     <p className="text-lg text-slate-600 leading-relaxed">
-                      To provide world-class, accessible, and compassionate healthcare. We believe in accurate diagnosis and effective treatment plans delivered in an environment that promotes fast recovery.
+                      To provide the best, accessible, and compassionate healthcare. We believe in accurate diagnosis and effective treatment plans delivered in an environment that promotes fast recovery.
                     </p>
                   </div>
                 </div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900 mb-3">Our Vision</h3>
                     <p className="text-lg text-slate-600 leading-relaxed">
-                      To be the most trusted healthcare destination in central India, known for clinical excellence, cutting-edge infrastructure, and unwavering patient commitment.
+                      To be the most trusted healthcare destination in Raipur, Chhattisgarh, known for clinical excellence, cutting-edge infrastructure, and unwavering patient commitment.
                     </p>
                   </div>
                 </div>
@@ -72,7 +72,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="relative rounded-[4rem] overflow-hidden shadow-2xl h-[600px]"
             >
-              <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=1200" alt="Clinic Interior" className="w-full h-full object-cover" />
+              <img src="/images/healthcare.png" alt="Clinic Interior" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
               <div className="absolute bottom-10 left-10 right-10 p-8 bg-white/10 backdrop-blur-xl rounded-[2.5rem] border border-white/20">
                 <div className="text-white text-2xl font-bold mb-2">State-of-the-Art Facility</div>
@@ -267,7 +267,7 @@ export default function AboutPage() {
         <div className="main-container">
           <div className="bg-brand-teal rounded-[3rem] md:rounded-[5rem] p-12 md:py-32 md:px-24 text-center text-white relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 20% 30%, #ffffff 0%, transparent 40%)' }} />
-            <h2 className="text-3xl md:text-6xl font-bold mb-8 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready to experience <br />world-class care?</h2>
+            <h2 className="text-3xl md:text-6xl font-bold mb-8 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready to experience <br />top class healthcare?</h2>
             <Button onClick={() => openModal()} variant="secondary" className="bg-white text-brand-teal hover:bg-teal-50 h-16 px-12 rounded-2xl text-xl font-bold shadow-2xl border-0 relative z-10">
               Book Your Visit Today
             </Button>
