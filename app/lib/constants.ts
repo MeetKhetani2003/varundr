@@ -10,8 +10,8 @@ export const DOCTORS = [
   {
     id: 'dr-varun',
     name: 'Dr. Varun Goel',
-    qualifications: 'MS Orthopedic',
-    specialization: 'Fellow in Arthroscopy and Sports Medicine\nSpecialization in Trauma & Joint Replacement\nEx Registrar PGI Rohtak',
+    qualifications: 'MBBS, MS (Orthopaedics)',
+    specialization: 'Founder, Director & Chief Orthopedic Surgeon',
     image: '/doctors/drvarun.png',
     tags: ['Orthopedics', 'Joint Replacement', 'Sports Medicine', 'Trauma'],
     bio: 'Dr. Varun Goel brings years of specialized experience in complex orthopedic procedures, focusing on restoring mobility and eliminating pain through minimally invasive techniques.'
@@ -19,8 +19,8 @@ export const DOCTORS = [
   {
     id: 'dr-neha',
     name: 'Dr. Neha Goel',
-    qualifications: 'MD Pathology',
-    specialization: 'Specialist in Histopathology, Cytology and Hematology',
+    qualifications: 'MBBS, MD (Pathology)',
+    specialization: 'Founder, Director & Chief Pathologist',
     image: 'https://max-website20-images.s3.ap-south-1.amazonaws.com/Dr_Neha_Gupta_eedf7c787b.png',
     tags: ['Pathology', 'Histopathology', 'Cytology', 'Hematology'],
     bio: 'Dr. Neha Goel leads our advanced diagnostic division, ensuring accurate, rapid, and comprehensive pathological analysis to guide effective treatment plans.'

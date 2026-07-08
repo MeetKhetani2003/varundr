@@ -92,7 +92,7 @@ export default function PathologyPage() {
       {/* Cinematic Hero (same as before) */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200" alt="Pathology Lab" className="w-full h-full object-cover opacity-50" />
+          <img src="/images/patho.jpeg" alt="Pathology Lab" className="w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         
@@ -105,7 +105,7 @@ export default function PathologyPage() {
               Precision <br /><span className="font-bold text-teal-400">Pathology</span>
             </motion.h1>
             <motion.p variants={fadeUpVariant} className="text-2xl text-slate-300 font-medium mb-10 leading-relaxed max-w-2xl">
-              NABL-standard diagnostic lab provides the accuracy you can trust for your healing journey.
+              Best in class, state of the art Pathology Lab under direct supervision of a Senior Pathologist that provides the accuracy you can trust for your healing journey.
             </motion.p>
           </motion.div>
         </div>

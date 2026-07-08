@@ -69,14 +69,14 @@ export default function TestInquiryModal({ isOpen, onClose, selectedTestIds, sel
       >
         <motion.div 
           initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
-          className="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl"
+          className="bg-white rounded-3xl w-full max-w-lg shadow-2xl flex flex-col max-h-[90vh]"
         >
-          <div className="bg-teal-600 p-6 text-white text-center relative">
+          <div className="bg-teal-600 p-6 text-white text-center relative shrink-0">
             <h2 className="text-2xl font-bold">{title}</h2>
             <button onClick={onClose} className="absolute right-6 top-6 text-white/70 hover:text-white font-bold">✕</button>
           </div>
 
-          <div className="p-8">
+          <div className="p-8 overflow-y-auto">
             {success ? (
               <div className="text-center py-10">
                 <div className="w-20 h-20 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">

@@ -68,9 +68,19 @@ export default function DoctorJourneyPage() {
                   {doctor.name}
                 </motion.h1>
                 <motion.div variants={fadeUpVariant} className="text-2xl text-teal-400 font-bold mb-8">{doctor.qualifications}</motion.div>
-                <motion.p variants={fadeUpVariant} className="text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl">
-                  {doctor.bio}
-                </motion.p>
+                {doctor.detailedBio ? (
+                  <div className="space-y-4 mb-10 max-w-2xl">
+                    {doctor.detailedBio.map((para: string, i: number) => (
+                      <motion.p key={i} variants={fadeUpVariant} className="text-xl text-slate-300 leading-relaxed">
+                        {para}
+                      </motion.p>
+                    ))}
+                  </div>
+                ) : (
+                  <motion.p variants={fadeUpVariant} className="text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl">
+                    {doctor.bio}
+                  </motion.p>
+                )}
                 
                 <motion.div variants={fadeUpVariant} className="flex flex-wrap gap-8 py-8 border-y border-white/10 mb-10">
                   <div className="flex items-center gap-3">
@@ -101,6 +111,17 @@ export default function DoctorJourneyPage() {
           <SectionHeading subtitle="Clinical Background" title="Professional Experience & Education" centered />
           
           <div className="flex flex-col gap-6 mt-16">
+            {doctor.philosophy && (
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-teal-50 p-6 md:p-8 rounded-[2rem] border border-teal-100 mb-8"
+              >
+                <h3 className="text-xl font-bold text-teal-800 mb-2">Treatment Philosophy</h3>
+                <p className="text-lg md:text-xl text-teal-900 leading-relaxed italic">"{doctor.philosophy}"</p>
+              </motion.div>
+            )}
             {doctor.experience.map((exp: string, i: number) => (
               <motion.div 
                 key={i}
@@ -154,6 +175,21 @@ export default function DoctorJourneyPage() {
               </div>
             </div>
           </div>
+          {doctor.research && (
+            <div className="mt-16 pt-16 border-t border-white/10">
+              <h2 className="text-4xl font-bold text-white mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>Academic Excellence & Research</h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {doctor.research.map((item: string, i: number) => (
+                  <div key={i} className="flex items-start gap-4 p-6 rounded-3xl bg-white/5 border border-white/10 text-white">
+                     <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
+                       <CheckCircle2 className="w-6 h-6" />
+                     </div>
+                     <p className="text-lg leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -172,6 +208,16 @@ export default function DoctorJourneyPage() {
           </div>
         </div>
       </section>
+      {doctor.seoCredentials && (
+        <section className="bg-slate-100 py-10">
+          <div className="main-container text-center max-w-4xl">
+            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Credentials & Verification</h3>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              {doctor.seoCredentials.join(' | ')}
+            </p>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
