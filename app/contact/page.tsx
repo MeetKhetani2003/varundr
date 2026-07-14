@@ -100,7 +100,7 @@ export default function ContactPage() {
                 
                 <div className="flex-1 rounded-3xl overflow-hidden shadow-inner border border-slate-100 min-h-[350px] relative">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.525548815!2d81.7063468!3d21.2506693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c3664d50f55f%3A0xc3c9448f80456565!2sCare%20Plus%20Healthcentre!5e0!3m2!1sen!2sin!4v1715668000000!5m2!1sen!2sin" 
+                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3717.75753067609!2d81.70476957526355!3d21.281063380432105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDE2JzUxLjgiTiA4McKwNDInMjYuNCJF!5e0!3m2!1sen!2sin!4v1784007062004!5m2!1sen!2sin" 
                     className="absolute inset-0 w-full h-full border-0"
                     allowFullScreen={true} 
                     loading="lazy" 
@@ -147,7 +147,7 @@ export default function ContactPage() {
                 name: "Instagram", 
                 icon: (props: any) => <svg {...props} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>,
                 color: "hover:bg-[#E4405F] hover:text-white",
-                href: "https://www.instagram.com/drvarungoelmsorthoraipur?igsh=MXJmdnVyaHFvNHBxMw%3D%3D&utm_source=ig_contact_invite"
+                href: "https://www.instagram.com/drvarungoelmsorthoraipur?igsh=MXJmdnVyaHFvNHBxMw==&utm_source=ig_contact_invite"
               },
               { 
                 name: "WhatsApp", 
