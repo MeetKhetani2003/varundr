@@ -33,11 +33,11 @@ export default function DoctorJourneyPage() {
       {/* 1. Profile Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
-           <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" alt="Doctor Hero Bg" className="w-full h-full object-cover" />
-           <div className="absolute inset-0 bg-slate-900/30" />
-           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200" alt="Doctor Hero Bg" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
-        
+
         <div className="main-container relative z-10">
           <Link href="/doctors" className="inline-flex items-center gap-2 text-teal-400 font-bold mb-12 hover:gap-4 transition-all">
             <ArrowLeft className="w-5 h-5" /> Back to Specialists
@@ -45,7 +45,7 @@ export default function DoctorJourneyPage() {
 
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-5">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="relative"
@@ -81,7 +81,7 @@ export default function DoctorJourneyPage() {
                     {doctor.bio}
                   </motion.p>
                 )}
-                
+
                 <motion.div variants={fadeUpVariant} className="flex flex-wrap gap-8 py-8 border-y border-white/10 mb-10">
                   <div className="flex items-center gap-3">
                     <Star className="text-yellow-400 fill-current w-6 h-6" />
@@ -109,10 +109,10 @@ export default function DoctorJourneyPage() {
       <section className="section-padding bg-slate-50">
         <div className="main-container max-w-4xl">
           <SectionHeading subtitle="Clinical Background" title="Professional Experience & Education" centered />
-          
+
           <div className="flex flex-col gap-6 mt-16">
             {doctor.philosophy && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -123,7 +123,7 @@ export default function DoctorJourneyPage() {
               </motion.div>
             )}
             {doctor.experience.map((exp: string, i: number) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -160,7 +160,7 @@ export default function DoctorJourneyPage() {
                 ))}
               </div>
             </div>
-            
+
             <div>
               <h2 className="text-4xl font-bold text-white mb-12" style={{ fontFamily: 'var(--font-outfit)' }}>Key Achievements</h2>
               <div className="space-y-6">
@@ -181,10 +181,10 @@ export default function DoctorJourneyPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 {doctor.research.map((item: string, i: number) => (
                   <div key={i} className="flex items-start gap-4 p-6 rounded-3xl bg-white/5 border border-white/10 text-white">
-                     <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
-                       <CheckCircle2 className="w-6 h-6" />
-                     </div>
-                     <p className="text-lg leading-relaxed">{item}</p>
+                    <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-6 h-6" />
+                    </div>
+                    <p className="text-lg leading-relaxed">{item}</p>
                   </div>
                 ))}
               </div>
@@ -198,7 +198,7 @@ export default function DoctorJourneyPage() {
         <div className="main-container max-w-5xl">
           <div className="bg-white rounded-[4rem] p-12 md:p-20 shadow-xl border border-slate-100 flex flex-col md:flex-row items-center gap-12">
             <div className="w-40 h-40 rounded-full overflow-hidden shrink-0 border-4 border-slate-50">
-               <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
+              <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'var(--font-outfit)' }}>Consult {doctor.name}</h2>

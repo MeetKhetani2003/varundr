@@ -92,7 +92,7 @@ export default function PathologyPage() {
       {/* Cinematic Hero (same as before) */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
-          <img src="/images/patho.jpeg" alt="Pathology Lab" className="w-full h-full object-cover opacity-50" />
+          <img src="/images/dept_pathology.png" alt="Pathology Lab" className="w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         

@@ -65,41 +65,47 @@ export const DOCTORS_DATA: Record<string, any> = {
     name: 'Dr. Neha Goel',
     qualifications: 'MBBS, MD (Pathology)',
     specialization: 'Founder, Director & Chief Pathologist',
-    image: 'https://max-website20-images.s3.ap-south-1.amazonaws.com/Dr_Neha_Gupta_eedf7c787b.png',
+    image: '/doctors/drneha.png',
     bio: 'Dr. Neha Goel, MBBS, MD (Pathology) is a highly qualified Consultant Pathologist with extensive experience in laboratory medicine, histopathology, cytology, hematology, clinical pathology, and quality assurance in diagnostic services.',
     detailedBio: [
       'As the Founder, Director, and Chief Pathologist of Care Plus Advanced Pathology Laboratory, she is dedicated to delivering precise, timely, and reliable diagnostic services that form the foundation of quality patient care.',
       'With a strong academic background and years of experience in government hospitals, teaching institutions, and private diagnostic laboratories, Dr. Goel believes that accurate laboratory diagnosis is the cornerstone of effective treatment. Her commitment to excellence has helped establish Care Plus Advanced Pathology Laboratory as a trusted diagnostic center equipped with modern technology and stringent quality control protocols.',
       'Dr. Goel completed her MBBS and subsequently earned her MD in Pathology from Adesh Medical College, Adesh University, Bathinda, successfully completing her postgraduate training in the first attempt. She has received specialized training in laboratory quality management, laboratory accreditation standards, and Good Laboratory Practices, enabling her to maintain the highest standards in diagnostic reporting.',
-      'She has previously served as Specialist Pathologist (Class I) and Head of Pathology Laboratory at Kirodimal Government District Hospital, Raigarh. She also successfully established and managed complete pathology laboratory setups at Medicure Pathology Laboratory, Raigarh, and Care Plus Advanced Pathology Laboratory, Raipur.',
-      'In addition to her clinical responsibilities, Dr. Goel has held key public health positions as Nodal Officer for Malaria Prevention and Nodal Officer for Dengue Prevention. Earlier in her career, she gained valuable clinical experience at Safdarjung Hospital, New Delhi.'
+      'She has previously served as Specialist Pathologist (Class I) and Head of Pathology Laboratory at Kirodimal Government District Hospital, Raigarh, where she played a vital role in strengthening laboratory services and public health initiatives. She also successfully established and managed complete pathology laboratory setups at Medicure Pathology Laboratory, Raigarh, and Care Plus Advanced Pathology Laboratory, Raipur, demonstrating her expertise in laboratory planning, quality systems, workflow optimization, and diagnostic excellence.',
+      'In addition to her clinical responsibilities, Dr. Goel has held key public health positions as Nodal Officer for Malaria Prevention and Nodal Officer for Dengue Prevention, contributing significantly to disease surveillance and community healthcare programs. Earlier in her career, she gained valuable clinical experience at Safdarjung Hospital, New Delhi, where she worked in the Departments of Casualty, Anaesthesia & Critical Care, and rendered frontline medical services during dengue and influenza outbreaks, earning appreciation for her dedication.'
     ],
     experience: [
       'Founder, Director & Chief Pathologist, Care Plus Advanced Pathology Laboratory, Raipur',
       'Senior Consultant Pathologist & Laboratory In-charge, Care Plus Healthcentre',
       'Specialist Pathologist (Class I) & Head of Pathology Laboratory, Kirodimal Government District Hospital, Raigarh',
-      'Nodal Officer for Malaria & Dengue Prevention',
-      'Safdarjung Hospital, New Delhi (Departments of Casualty, Anaesthesia & Critical Care)'
+      'Nodal Officer for Malaria Prevention and Nodal Officer for Dengue Prevention',
+      'Medical Services (Casualty, Anaesthesia & Critical Care), Safdarjung Hospital, New Delhi'
     ],
     expertise: [
-      'Histopathology & Cytopathology (FNAC & Cytology)',
-      'Hematology & Clinical Pathology',
-      'Biochemistry & Clinical Microbiology Coordination',
+      'Histopathology',
+      'Cytopathology (FNAC & Cytology)',
+      'Hematology',
+      'Clinical Pathology',
+      'Biochemistry',
+      'Clinical Microbiology Coordination',
       'Preventive Health Check-up Interpretation',
       'Cancer Screening',
-      'Laboratory Quality Assurance & ISO-Compliant Management',
+      'Laboratory Quality Assurance',
+      'ISO-Compliant Laboratory Management',
       'Diagnostic Laboratory Planning & Quality Systems'
     ],
-    philosophy: 'Every successful treatment begins with an accurate diagnosis. Precision, transparency, ethical reporting, and continuous quality improvement are central to providing timely, dependable, and clinically relevant laboratory reports.',
+    philosophy: 'Dr. Neha Goel believes that every successful treatment begins with an accurate diagnosis. Her philosophy is centered on precision, transparency, ethical reporting, and continuous quality improvement. She works closely with clinicians to provide timely, dependable, and clinically relevant laboratory reports that support informed medical decision-making.',
     research: [
-      'Contributed to several peer-reviewed publications and co-authored a medical book chapter on Tuberculosis of the Shoulder Joint.',
+      'Contributed to several peer-reviewed publications and co-authored a medical book chapter on Tuberculosis of the Shoulder Joint, reflecting her multidisciplinary research involvement.',
       'Published in nationally and internationally indexed journals covering Infectious diseases, Orthopedic pathology, Tuberculosis, Clinical research, and Community health.',
-      'Regularly participates in Continuing Medical Education (CME) programs, workshops, and scientific conferences to remain updated with the latest developments.'
+      'Regularly participates in Continuing Medical Education (CME) programs, workshops, and scientific conferences to remain updated with the latest developments in pathology, laboratory medicine, and diagnostic technologies.'
     ],
     achievements: [
       'Advanced training in ISO 15189:2022 Laboratory Management Systems',
       'Internal Audit & Quality Assurance',
-      'Risk Management & Good Laboratory Practices (GLP)',
+      'Risk Management',
+      'Good Laboratory Practices (GLP)',
+      'Laboratory Accreditation Protocols',
       'Point-of-Care Testing (POCT)',
       'Pre-Analytical and Post-Analytical Quality Systems'
     ],

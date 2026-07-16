@@ -10,46 +10,46 @@ import { Button, SectionHeading } from '../components/UIElements';
 import { useAppointment } from '../lib/AppointmentContext';
 
 const services = [
-  { 
-    id: 'orthopedic-care', 
-    title: 'Orthopedic Care', 
-    icon: Bone, 
+  {
+    id: 'orthopedic-care',
+    title: 'Orthopedic Care',
+    icon: Bone,
     desc: 'Specialized trauma, joint replacement, and sports medicine led by Dr. Varun Goel.',
     image: '/serviceimages/ortho.jpeg'
   },
-  { 
-    id: 'pathology-lab', 
-    title: 'Pathology Lab', 
-    icon: Microscope, 
-    desc: 'High-precision diagnostics, histopathology, and routine blood analysis.', 
+  {
+    id: 'pathology-lab',
+    title: 'Pathology Lab',
+    icon: Microscope,
+    desc: 'High-precision diagnostics, histopathology, and routine blood analysis.',
     image: '/images/dept_pathology.png',
     customHref: '/pathology'
   },
-  { 
-    id: 'trauma-care', 
-    title: 'Trauma Care', 
-    icon: Activity, 
+  {
+    id: 'trauma-care',
+    title: 'Trauma Care',
+    icon: Activity,
     desc: 'Prompt emergency response for high-velocity injuries and complex fractures.',
     image: '/serviceimages/traumacare.jpeg'
   },
-  { 
-    id: 'digital-xray', 
-    title: 'Digital X-Ray', 
-    icon: ClipboardList, 
+  {
+    id: 'digital-xray',
+    title: 'Digital X-Ray',
+    icon: ClipboardList,
     desc: 'High-resolution imaging with minimal radiation for accurate medical assessment.',
     image: '/serviceimages/digitalx-ray.jpeg'
   },
-  { 
-    id: 'joint-replacement', 
-    title: 'Joint Replacement', 
-    icon: Stethoscope, 
+  {
+    id: 'joint-replacement',
+    title: 'Joint Replacement',
+    icon: Stethoscope,
     desc: 'World-class knee and hip replacement procedures for a pain-free active life.',
     image: '/serviceimages/radiology.jpeg'
   },
-  { 
-    id: 'in-house-pharmacy', 
-    title: 'In-house Pharmacy', 
-    icon: Building, 
+  {
+    id: 'in-house-pharmacy',
+    title: 'In-house Pharmacy',
+    icon: Building,
     desc: 'On-site pharmacy providing immediate access to all essential medications.',
     image: '/serviceimages/inhousepharmacy.jpeg'
   },
@@ -63,17 +63,18 @@ export default function ServicesPage() {
       {/* 1. Header Section */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-900">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200" alt="Services Bg" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-900/20" />
+          <img src="/images/healthcarebanner.png" alt="Services Bg" className="w-full h-full object-cover object-center" />
+          <div className="absolute inset-0 bg-slate-900/30" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/70 via-transparent to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent" />
         </div>
         <div className="main-container relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-teal-500/10 text-teal-400 text-sm font-bold uppercase tracking-[0.3em] mb-6">Care Excellence</span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-slate-900/50 backdrop-blur-md text-teal-400 text-sm font-bold uppercase tracking-[0.3em] mb-6 border border-white/10 shadow-xl">Care Excellence</span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight mb-8 drop-shadow-2xl" style={{ fontFamily: 'var(--font-outfit)', textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
               Our Medical <span className="font-bold" style={{ color: BRAND.teal }}>Services</span>
             </h1>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed font-medium" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
               From advanced orthopedic surgeries to precision diagnostics, we provide a complete spectrum of healthcare services under one roof.
             </p>
           </motion.div>
@@ -111,7 +112,7 @@ export default function ServicesPage() {
                     {svc.desc}
                   </p>
                   <div className="flex flex-col gap-4 mt-auto">
-                    <button 
+                    <button
                       onClick={(e) => {
                         e.stopPropagation();
                         const serviceMap: Record<string, string> = {
@@ -147,7 +148,7 @@ export default function ServicesPage() {
               <SectionHeading subtitle="Service Standards" title="Committed to Clinical Excellence" isDark />
               <div className="space-y-4 md:space-y-6 mt-8 md:mt-10">
                 {[
-                  "NABL Standard Pathology Lab",
+                  "State-of-the-Art Pathology Lab",
                   "Fellowship-Trained Orthopedic Surgeons",
                   "Minimally Invasive Surgical Techniques",
                   "Instant Digital X-Ray Processing",
@@ -163,11 +164,11 @@ export default function ServicesPage() {
               </div>
             </div>
             <div className="relative mt-8 lg:mt-0">
-               <img src="/images/healthcare.png" alt="Excellence" className="w-full h-[300px] md:h-[500px] object-cover rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl" />
-               <div className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 bg-brand-teal text-white p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl">
-                 <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">100%</div>
-                 <div className="text-[10px] md:text-sm font-bold uppercase tracking-widest opacity-70 leading-tight">Accuracy<br className="md:hidden" /> Guarantee</div>
-               </div>
+              <img src="/images/healthcare.png" alt="Excellence" className="w-full h-[300px] md:h-[500px] object-cover rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl" />
+              <div className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 bg-brand-teal text-white p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl">
+                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">100%</div>
+                <div className="text-[10px] md:text-sm font-bold uppercase tracking-widest opacity-70 leading-tight">Accuracy<br className="md:hidden" /> Guarantee</div>
+              </div>
             </div>
           </div>
         </div>
@@ -180,8 +181,8 @@ export default function ServicesPage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl" />
             <h2 className="text-4xl md:text-6xl font-bold text-white mb-10 relative z-10" style={{ fontFamily: 'var(--font-outfit)' }}>Ready for a <br />consultation?</h2>
             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
-               <Button onClick={() => openModal()} className="h-16 px-12 rounded-2xl text-xl">Book Your Slot</Button>
-               <Button variant="secondary" onClick={() => window.open('https://wa.me/917701010703', '_blank')} className="bg-white/10 border-white/20 text-white h-16 px-12 rounded-2xl text-xl">WhatsApp Us</Button>
+              <Button onClick={() => openModal()} className="h-16 px-12 rounded-2xl text-xl">Book Your Slot</Button>
+              <Button variant="secondary" onClick={() => window.open('https://wa.me/917701010703', '_blank')} className="bg-white/10 border-white/20 text-white h-16 px-12 rounded-2xl text-xl">WhatsApp Us</Button>
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ export const SERVICES_DATA: Record<string, any> = {
     subtitle: 'Diagnostic Excellence You Can Trust',
     icon: Microscope,
     image: '/serviceimages/patho.jpeg',
-    description: 'Led by Dr. Neha Goel, our NABL-standard lab provides accurate and rapid results across histopathology, cytology, and hematology. We understand that accurate treatment starts with accurate diagnostics.',
+    description: 'Led by Dr. Neha Goel, our state-of-the-art pathology lab provides accurate and rapid results across histopathology, cytology, and hematology. We understand that accurate treatment starts with accurate diagnostics.',
     features: [
       'Advanced Histopathology',
       'Cytology & FNA Testing',

@@ -21,7 +21,7 @@ export const DOCTORS = [
     name: 'Dr. Neha Goel',
     qualifications: 'MBBS, MD (Pathology)',
     specialization: 'Founder, Director & Chief Pathologist',
-    image: 'https://max-website20-images.s3.ap-south-1.amazonaws.com/Dr_Neha_Gupta_eedf7c787b.png',
+    image: '/doctors/drneha.png',
     tags: ['Pathology', 'Histopathology', 'Cytology', 'Hematology'],
     bio: 'Dr. Neha Goel leads our advanced diagnostic division, ensuring accurate, rapid, and comprehensive pathological analysis to guide effective treatment plans.'
   }
@@ -83,7 +83,7 @@ export const HERO_SLIDES: Array<{
       id: 4,
       title: 'Precision Diagnostics.',
       highlight: 'Dr. Neha Goel.',
-      description: 'NABL-aligned pathology lab under the leadership of Dr. Neha Goel (MD Pathology) for accurate clinical reporting.',
+      description: 'Best-in-class pathology lab under the leadership of Dr. Neha Goel (MD Pathology) for accurate clinical reporting.',
       image: '/images/patho.jpeg'
     },
   ];

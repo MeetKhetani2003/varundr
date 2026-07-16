@@ -214,7 +214,7 @@ export default function AboutPage() {
                       <span className="font-bold text-slate-900">Lab Leadership</span>
                     </div>
                     <ul className="text-slate-500 text-sm space-y-1">
-                      <li>• NABL Quality Standards</li>
+                      <li>• Rigorous Quality Standards</li>
                       <li>• Automated Bio-Chemistry</li>
                       <li>• Advanced Cytology</li>
                     </ul>
@@ -227,7 +227,7 @@ export default function AboutPage() {
                     <span className="font-bold text-slate-900">Centre of Excellence</span>
                   </div>
                   <p className="text-slate-500 text-sm leading-relaxed">
-                    She leads the NABL-aligned pathology lab at **Care Plus**, ensuring zero-error reporting and rapid turnaround times for all diagnostic tests.
+                    She leads the state-of-the-art pathology lab at **Care Plus**, ensuring zero-error reporting and rapid turnaround times for all diagnostic tests.
                   </p>
                 </div>
 
