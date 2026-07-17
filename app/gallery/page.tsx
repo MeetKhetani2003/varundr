@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GALLERY_IMAGES, handleImageFallback, modernEase, fadeUpVariant, staggerContainer, BRAND } from '../lib/constants';
 import { SectionHeading, Button } from '../components/UIElements';
-import { Play, Image as ImageIcon, Maximize2 } from 'lucide-react';
+import { Play, Image as ImageIcon, Maximize2, X } from 'lucide-react';
 import { useAppointment } from '../lib/AppointmentContext';
 import Link from 'next/link';
 
@@ -15,6 +15,7 @@ export default function GalleryPage() {
   const { openModal } = useAppointment();
   const [activeTab, setActiveTab] = useState<'all' | 'photos' | 'videos'>('all');
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
   
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -175,7 +176,8 @@ export default function GalleryPage() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: (idx % 10) * 0.05 }}
-                        className="break-inside-avoid relative group rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all"
+                        onClick={() => setSelectedPhoto(item.url)}
+                        className="break-inside-avoid relative group rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all cursor-pointer"
                       >
                         <img src={item.url} alt={(item as any).title || `Gallery ${idx}`} className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110" onError={handleImageFallback} />
                         <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -242,6 +244,32 @@ export default function GalleryPage() {
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedPhoto && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedPhoto(null)}
+            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+          >
+            <button 
+              onClick={(e) => { e.stopPropagation(); setSelectedPhoto(null); }}
+              className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <img 
+              src={selectedPhoto} 
+              alt="Full size gallery" 
+              className="max-w-full max-h-full object-contain rounded-2xl" 
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
