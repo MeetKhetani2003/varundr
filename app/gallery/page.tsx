@@ -177,7 +177,7 @@ export default function GalleryPage() {
                         transition={{ delay: (idx % 10) * 0.05 }}
                         className="break-inside-avoid relative group rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all"
                       >
-                        <img src={item.url} alt={item.title || `Gallery ${idx}`} className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110" onError={handleImageFallback} />
+                        <img src={item.url} alt={(item as any).title || `Gallery ${idx}`} className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110" onError={handleImageFallback} />
                         <div className="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                           <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
                             <Maximize2 className="w-8 h-8" />

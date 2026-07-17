@@ -25,9 +25,9 @@ export async function POST(request: Request) {
     readableStream.push(buffer);
     readableStream.push(null);
 
-    return new Promise((resolve) => {
+    return new Promise<NextResponse>((resolve) => {
       const uploadStream = bucket.openUploadStream(file.name, {
-        contentType: file.type,
+        metadata: { contentType: file.type },
       });
 
       readableStream.pipe(uploadStream)

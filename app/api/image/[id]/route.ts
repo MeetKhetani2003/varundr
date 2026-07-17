@@ -36,7 +36,7 @@ export async function GET(request: Request, context: { params: Promise<{ id: str
 
     return new NextResponse(webStream, {
       headers: {
-        'Content-Type': file.contentType || 'application/octet-stream',
+        'Content-Type': file.metadata?.contentType || 'application/octet-stream',
         'Cache-Control': 'public, max-age=31536000, immutable',
       },
     });
