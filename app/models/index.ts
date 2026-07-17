@@ -76,3 +76,37 @@ const InquirySchema = new Schema({
 }, { timestamps: true });
 
 export const Inquiry = mongoose.models.Inquiry || mongoose.model<IInquiry>('Inquiry', InquirySchema);
+
+
+// --- GalleryCategory ---
+export interface IGalleryCategory extends Document {
+  name: string;
+  type: 'photo' | 'video';
+  sortOrder: number;
+}
+const GalleryCategorySchema = new Schema({
+  name: { type: String, required: true },
+  type: { type: String, enum: ['photo', 'video'], required: true },
+  sortOrder: { type: Number, default: 0 },
+}, { timestamps: true });
+
+export const GalleryCategory = mongoose.models.GalleryCategory || mongoose.model<IGalleryCategory>('GalleryCategory', GalleryCategorySchema);
+
+
+// --- GalleryItem ---
+export interface IGalleryItem extends Document {
+  url: string;
+  type: 'photo' | 'video';
+  categoryId?: mongoose.Types.ObjectId;
+  title?: string;
+  thumbnail?: string;
+}
+const GalleryItemSchema = new Schema({
+  url: { type: String, required: true },
+  type: { type: String, enum: ['photo', 'video'], required: true },
+  categoryId: { type: Schema.Types.ObjectId, ref: 'GalleryCategory' },
+  title: { type: String },
+  thumbnail: { type: String },
+}, { timestamps: true });
+
+export const GalleryItem = mongoose.models.GalleryItem || mongoose.model<IGalleryItem>('GalleryItem', GalleryItemSchema);

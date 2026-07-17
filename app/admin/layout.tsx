@@ -2,11 +2,16 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Beaker, Package, Inbox, FileText } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { LayoutDashboard, Beaker, Package, Inbox, FileText, ImageIcon, Tags, LogOut } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
+
+  if (pathname === '/admin/login') {
+    return <>{children}</>;
+  }
 
   const links = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
@@ -14,7 +19,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { name: 'General Inquiries', href: '/admin/general-inquiries', icon: Inbox },
     { name: 'Manage Tests', href: '/admin/tests', icon: Beaker },
     { name: 'Manage Packages', href: '/admin/packages', icon: Package },
+    { name: 'Gallery Items', href: '/admin/gallery', icon: ImageIcon },
+    { name: 'Gallery Categories', href: '/admin/gallery/categories', icon: Tags },
   ];
+
+  const handleLogout = async () => {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    router.push('/admin/login');
+    router.refresh();
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
@@ -25,10 +38,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <p className="text-slate-400 text-sm">Control Dashboard</p>
         </div>
         
-        <nav className="flex-1 p-4 space-y-2">
+        <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
           {links.map((link) => {
             const Icon = link.icon;
-            const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+            const isActive = link.href === '/admin' ? pathname === '/admin' : pathname.startsWith(link.href);
             return (
               <Link 
                 key={link.name} 
@@ -41,10 +54,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             );
           })}
         </nav>
+        
+        <div className="p-4 border-t border-slate-800">
+          <button 
+            onClick={handleLogout}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-red-400 hover:bg-red-500/10 hover:text-red-300 font-medium"
+          >
+            <LogOut className="w-5 h-5" />
+            Logout
+          </button>
+        </div>
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1 overflow-y-auto h-screen">
         <div className="p-10">
           {children}
         </div>

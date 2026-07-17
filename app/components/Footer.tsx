@@ -89,7 +89,7 @@ export const Footer = () => (
               <Phone className="w-6 h-6 shrink-0" style={{ color: BRAND.tealLight }} />
               <div>
 
-                <div className="text-slate-300 text-sm mt-1">Orthopadic: <a href="tel:+917701010703" className="hover:text-white transition-colors">7701010703</a></div>
+                <div className="text-slate-300 text-sm mt-1">Orthopedic: <a href="tel:+917701010703" className="hover:text-white transition-colors">7701010703</a></div>
                 <div className="text-slate-300 text-sm mt-1">Pathology: <a href="tel:+917701010704" className="hover:text-white transition-colors">7701010704</a></div>
               </div>
             </li>
